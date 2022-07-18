@@ -1,0 +1,45 @@
+{
+  "register": [
+    {
+      "usename": "Kim Tân",
+      "sex": "Male",
+      "birth": "2022-07-11T17:00:00.000Z",
+      "type": "individual",
+      "email": "lekimtan06@gmail.com",
+      "phone": 366319259,
+      "id": 3
+    },
+    {
+      "usename": "Kim Tân",
+      "sex": "Female",
+      "birth": "2022-07-02T17:00:00.000Z",
+      "type": "organization",
+      "email": "lekimtan@gmail.com",
+      "phone": 2656,
+      "id": 4
+    },
+    {
+      "usename": "Kim Tu",
+      "sex": "Female",
+      "birth": "2022-07-04T17:00:00.000Z",
+      "type": "individual",
+      "email": "lekimtan@gmail.com",
+      "phone": 919,
+      "id": 5
+    }
+  ],
+  "ima": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

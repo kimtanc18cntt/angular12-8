@@ -1,0 +1,7 @@
+<h1 mat-dialog-title> Delete</h1>
+<mat-icon>delete</mat-icon>
+<h2> Are you sure you want to delete? </h2>
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close  >Close</button>
+    <button mat-raised-button color="primary" style="margin-left: 8px;"  (click)="deleteproduct('bạn đã', 'Xóa')">Delete</button>
+</div>

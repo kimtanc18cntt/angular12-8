@@ -1,0 +1,46 @@
+<h1 mat-dialog-title> Register</h1>
+<form [formGroup]="productForm">
+<div mat-dialog-content>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Your Name</mat-label>
+        <input formControlName="usename" matInput placeholder="Usename">
+      </mat-form-field>
+      <div *ngIf="productForm.get('usename')?.errors && productForm.get('usename')?.touched">
+        <p *ngIf="productForm.get('usename')?.errors['required']">Username is required</p>
+        <p *ngIf="productForm.get('usename')?.errors['minlength']">Username must long on 5 character</p>
+      </div>
+      <br>     
+      <mat-label>Sex</mat-label>
+    <p-selectButton formControlName="sex" [(ngModel)]="value1" [options]="stateOptions"  optionLabel="label" optionValue="value"></p-selectButton> 
+      <mat-label>Date of birth</mat-label>
+      <br>
+      <p-calendar formControlName="birth" [showIcon]="true" dateFormat="dd/mm/yy"></p-calendar>
+     <br>
+      <label for=""> Account Type</label>
+      <mat-radio-group formControlName="type" class="ra_group">
+        <mat-radio-button class="ra_button" *ngFor="let fresh of account_type" [value]="fresh">
+            {{fresh}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        
+        <input formControlName="email" matInput placeholder="Email">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input formControlName="phone" matInput type="number" placeholder="Phone">
+      </mat-form-field>
+      <div *ngIf="productForm.get('phone')?.errors && productForm.get('phone')?.touched">
+        <p *ngIf="productForm.get('phone')?.errors['required']">Phone is required</p>
+        <p *ngIf="productForm.get('phone')?.errors['minlength']">Wrong format</p>
+      </div>
+     
+</div>
+</form>
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>close</button>
+    <button mat-raised-button color="primary" style="margin-left: 8px;" (click)="addproduct('Bạn đã','lưu')">save</button>
+
+</div>

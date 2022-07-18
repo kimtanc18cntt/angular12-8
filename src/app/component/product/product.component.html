@@ -1,0 +1,48 @@
+
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a (click)="filter('')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUM15Xj3V62EImuWAbDp9njC5AIvwNSb61Nw&usqp=CAUU" alt="">
+                <h6>All products</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('electronics')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0pJCdn9yn276poXMn7RtfVCv0rE1Lf6Uaxg&usqp=CAU" alt="">
+                <h6>Electronics</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('fashion')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTL8SWQ-ffeiHz4UYQ90c14BgT-tEfSackOtA&usqp=CAU" alt="">
+                <h6>Fashion</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a (click)="filter('jewelery')">
+                <img style="width: 62px; margin-top: 5px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaGfKmgLWD6LmE6tcMz086EvKGjlN8wZZ0FA&usqp=CAU" alt="">
+                <h6>Jewllery</h6>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+    <ng-container *ngFor="let item of productList">
+        <div class="card col-md-3">
+            <img src="{{item.image}}" alt="">
+            <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.title}}</h5>
+            <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.description}}</p>
+            <p><strong>Price:</strong> ${{item.price}}</p>
+            <button class="btn btn-primary" type="button" pButton pRipple (click)=addtocart(item) >Add to cart</button>
+        </div>
+       
+    </ng-container>   
+
+   
+    </div>
+   
+</div>
+<p-toast></p-toast>

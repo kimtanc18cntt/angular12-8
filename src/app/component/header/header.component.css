@@ -1,0 +1,32 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  h2 {
+    font-weight: bold;
+    }
+      
+
+.logo{
+    height: 64px;
+    width: 150px;
+    }
+.header{
+    height: 90px;
+    width: 100%;
+    border-bottom: 1px solid #858585;
+}
+
+
+.form-control {
+    border-radius: 3px;
+    width: 600px;
+    margin-left: 150px;
+}
+
+.search-icon {
+    position: absolute;
+    z-index: 10;
+    right: 58%;
+    top: 26px;
+    color: blue;
+}
