@@ -53,6 +53,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { DeleteComponent } from './component/delete/delete.component';
 import {PaginatorModule} from 'primeng/paginator';
+import { CoinListComponent } from './component/coin-list/coin-list.component';
+import {CascadeSelectModule} from 'primeng/cascadeselect';
+import {ToolbarModule} from 'primeng/toolbar';
+import {TableModule} from 'primeng/table';
+import { NgChartsModule } from 'ng2-charts';
+import {RatingModule} from 'primeng/rating';
+import {KeyFilterModule} from 'primeng/keyfilter';
 
 @NgModule({
   declarations: [
@@ -66,7 +73,8 @@ import {PaginatorModule} from 'primeng/paginator';
     PagenotcomponentComponent,
     RegisterComponent,
     DialogComponent,
-    DeleteComponent
+    DeleteComponent,
+    CoinListComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +116,13 @@ import {PaginatorModule} from 'primeng/paginator';
     MatSelectModule,
     MatPaginatorModule,
     MatSortModule,
-    PaginatorModule
+    PaginatorModule,
+    CascadeSelectModule,
+    ToolbarModule,
+    TableModule,
+    NgChartsModule,
+    RatingModule,
+    KeyFilterModule
   ],
   providers: [
     MatSnackBar,

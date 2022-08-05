@@ -6,8 +6,10 @@ import {CartComponent} from './component/cart/cart.component';
 import {HomeComponent} from './component/home/home.component'
 import {RegisterComponent} from './component/register/register.component'
 import {DialogComponent} from './component/dialog/dialog.component';
+import {CoinListComponent} from './component/coin-list/coin-list.component'
 
-const routes: Routes = [ { path: 'home', component:  HomeComponent},
+const routes: Routes = [ 
+{ path: 'home', component:  CoinListComponent},
 { path: 'products', component: ProductComponent },
 { path: 'cart', component: CartComponent },
 { path: 'addd', component: ProductComponent },

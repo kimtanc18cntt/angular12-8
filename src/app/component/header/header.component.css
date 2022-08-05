@@ -7,7 +7,7 @@
       
 
 .logo{
-    height: 64px;
+    height: 40px;
     width: 150px;
     }
 .header{
@@ -22,11 +22,27 @@
     width: 600px;
     margin-left: 150px;
 }
-
+.registers {
+    margin-left: 10px;
+}
 .search-icon {
+    margin-left: 10px;
     position: absolute;
     z-index: 10;
     right: 58%;
     top: 26px;
     color: blue;
+}
+.carts{
+    margin-left: 10px;
+}
+.Curr{
+    margin-left: 50px;
+}
+
+
+.bannerrr{
+    background-image: url('/src/assets/coin2.png');
+    height: 400px;
+    width: 100%;
 }

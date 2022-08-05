@@ -8,16 +8,16 @@ export class ApiregisterService {
   BASE_URL ='http://localhost:3000/register'
   constructor(private http : HttpClient) { }
   postProduct(data : any){
-    return this.http.post<any>("http://localhost:3000/register", data);
+    return this.http.post<any>(`${this.BASE_URL}` ,data);
   }
   getProduct(){
-    return this.http.get<any>("http://localhost:3000/register");
+    return this.http.get<any>(`${this.BASE_URL}`);
   }
   putProduct(data:any, id : number){
     return this.http.put<any>(`${this.BASE_URL}/${id}` ,data);
   }
   deleteProduct(id :number){
     console.log(id ,'id Api');
-    return this.http.delete<any>("http://localhost:3000/register/"+id);
+    return this.http.delete<any>(`${this.BASE_URL}/${id}`);
   }
 }

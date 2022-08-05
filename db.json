@@ -1,12 +1,12 @@
 {
   "register": [
     {
-      "usename": "Kim Tân",
+      "usename": "Kim te",
       "sex": "Male",
-      "birth": "2022-07-11T17:00:00.000Z",
+      "birth": "2022-07-03T17:00:00.000Z",
       "type": "individual",
       "email": "lekimtan06@gmail.com",
-      "phone": 366319259,
+      "phone": 36631925923,
       "id": 3
     },
     {
@@ -26,6 +26,33 @@
       "email": "lekimtan@gmail.com",
       "phone": 919,
       "id": 5
+    },
+    {
+      "usename": "mấndas",
+      "sex": "Male",
+      "birth": "2022-07-03T17:00:00.000Z",
+      "type": "organization",
+      "email": "ádsd@sdass",
+      "phone": 3623232312,
+      "id": 7
+    },
+    {
+      "usename": "Kimtan",
+      "sex": "Male",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "organization",
+      "email": "Trieu@gmail.com",
+      "phone": 366319259,
+      "id": 8
+    },
+    {
+      "usename": "KimTan",
+      "sex": "Female",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "company",
+      "email": "kimtan@gmail.com",
+      "phone": 366319259,
+      "id": 9
     }
   ],
   "ima": [

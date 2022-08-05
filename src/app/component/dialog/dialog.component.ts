@@ -16,7 +16,9 @@ export class DialogComponent implements OnInit {
   stateOptions: any[];
   actionBtn : string = "save";
   value1: string = "Male";
-
+  selectedCategory: any = null;
+  value3: string ="individual";
+  stateOptions1: any[];
   constructor(private formBuilder : FormBuilder, private api : ApiregisterService,
     @Inject(MAT_DIALOG_DATA) public editData : any,
     @Inject(MAT_DIALOG_DATA) public deData : any,
@@ -25,13 +27,15 @@ export class DialogComponent implements OnInit {
     private messageService: MessageService) { }
 
   ngOnInit(): void {
+
+
     this.productForm = this.formBuilder.group({
       usename : ['',[Validators.required, Validators.minLength(5)]],
       sex : ['',Validators.required],
       birth : ['',Validators.required],
       type : ['',Validators.required],
-      email : ['',Validators.required],
-      phone : ['',[Validators.required, Validators.maxLength(10)]],
+      email : ['',[Validators.required,Validators.pattern("[^ @]*@[^ @]*")]],
+      phone : ['',[Validators.required,Validators.pattern('(([0][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9])')]],
 
     });
     if(this.editData){
@@ -44,6 +48,7 @@ export class DialogComponent implements OnInit {
       this.productForm.controls['phone'].setValue(this.editData.phone);
     }
     this.stateOptions = [{label: 'Male', value: 'Male'}, {label: 'Female', value: 'Female'}];
+    this.stateOptions1 = [{label: 'company', value: 'company'}, {label: 'individual', value: 'individual'}];
   }
   addproduct(message: string, action: string){
     if(!this.editData){

@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import { CartService } from 'src/app/service/cart.service';
 import {CartComponent} from '../cart/cart.component'
@@ -9,7 +9,9 @@ import {CartComponent} from '../cart/cart.component'
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
+  @Input('item') public item;
   items: MenuItem[];
+
   constructor(private cartService : CartService) { }
 
   ngOnInit(): void {
