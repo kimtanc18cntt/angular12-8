@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     color: #fff;
+
     h2 {
         font-weight: bold;
         margin-bottom: 15px;
@@ -12,6 +13,7 @@
         line-height: 1.2;
         letter-spacing: -0.0083em;
     }
+
     h6 {
         color: darkgray;
         text-transform: capitalize;
@@ -21,17 +23,20 @@
         letter-spacing: 0.00714em;
     }
 }
-.banner{
-    background:#2d2e2e;
+
+.banner {
+    background-image: url('../../../assets/coin4.jpeg');
     height: 400px;
     width: 100%;
 }
-.sub-header{
+
+.sub-header {
     height: 50%;
     display: flex;
     align-items: center;
 }
-.cardd{
+
+.cardd {
     border: 0;
     background-color: transparent;
     color: #fff;
@@ -39,17 +44,21 @@
     margin: 10px;
     width: 100px;
     height: 200px;
-    img{
+
+    img {
         width: 70px;
         margin: 0 auto;
     }
+
     h5 {
         font-weight: 500;
     }
-    p{
+
+    p {
         font-weight: 700;
     }
 }
+
 table {
     width: 100%;
 }

@@ -1,14 +1,17 @@
 .menubar {
-    float: left;
-    width: 11%;
+  float: left;
+  width: 11%;
+  height: 100%;
+}
 
-    height: 100%;
-    }
-      
-      /* Cột chính giữa */
 .display {
-    float: right;
-    width: 89%;
-    height: 100%;
-    border-left: 1px solid #858585;
-     }
+  float: right;
+  width: 89%;
+  height: 100%;
+  border-left: 1px solid #858585;
+}
+
+.menu {
+  margin-left: 20px;
+}
+

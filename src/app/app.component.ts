@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { fadeInItems } from '@angular/material/menu';
+
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,10 @@ import { fadeInItems } from '@angular/material/menu';
 })
 export class AppComponent {
   title = 'app3';
- 
+  userDialog = false;
+  displayCounter(dialogopen){
+    this.userDialog = dialogopen;
+    console.log(this.userDialog);
+  }
+  
 }

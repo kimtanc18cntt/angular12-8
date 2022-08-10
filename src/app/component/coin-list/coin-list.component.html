@@ -6,20 +6,21 @@
         </div>
         <div class="sub-header">
             <marquee behavior="scroll" loop="infinite" direction="left">
-            <div class="row">
-                <ng-container *ngFor="let row of bannerData">
-                    <div class="col-1">
-                        <div class="cardd">
-                            <img [src]="row.image" width="100" class="img-fluid" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">{{row.symbol | uppercase}} <span class="text-danger">{{row.market_cap_change_percentage_24h}}%</span></h5>
-                                <p class="card-text">{{row.current_price | currency: currency}}</p>
+                <div class="row">
+                    <ng-container *ngFor="let row of bannerData">
+                        <div class="col-1">
+                            <div class="cardd">
+                                <img [src]="row.image" width="100" class="img-fluid" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{row.symbol | uppercase}} <span
+                                            class="text-danger">{{row.market_cap_change_percentage_24h}}%</span></h5>
+                                    <p class="card-text">{{row.current_price | currency: currency}}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </ng-container>
+                    </ng-container>
 
-            </div>
+                </div>
             </marquee>
         </div>
     </div>
@@ -27,31 +28,19 @@
 
 <div class="container">
     <div class="card">
-        
-        <!-- <p-toolbar styleClass="mb-4">
-            <ng-template pTemplate="left">
-                <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2"></button>
-                <button pButton pRipple [label]="'Delete'" icon="pi pi-trash" class="p-button-danger"></button>
-            </ng-template>
-    
-            <ng-template pTemplate="right">
-                <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload>
-                <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
-            </ng-template>
-        </p-toolbar> -->
-    
-        <p-table #dt [value]="dataSource" [rows]="5" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" responsiveLayout="scroll"
+        <p-table #dt [value]="dataSource" [rows]="5" [paginator]="true"
+            [globalFilterFields]="['name','country.name','representative.name','status']" responsiveLayout="scroll"
             [rowHover]="true" dataKey="id"
-            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [showCurrentPageReport]="true">
             <ng-template pTemplate="caption">
                 <div class="flex align-items-center justify-content-between">
                     <h3 class="m-0">Manage Products</h3>
                     <span class="p-input-icon-left">
                         <i class="pi pi-search"></i>
-                    
-                    
-                    <input pInputText type="text" (input)="dt.filterGlobal($event.target, 'contains')" placeholder="Global Search" />
-                </span>
+                        <input pInputText type="text" (input)="dt.filterGlobal($event.target, 'contains')"
+                            placeholder="Global Search" />
+                    </span>
                 </div>
             </ng-template>
             <ng-template pTemplate="header">
@@ -62,7 +51,7 @@
                     <th>Coin</th>
                     <th>Price</th>
                     <th>24h change</th>
-                    <th>Matket cap</th>   
+                    <th>Matket cap</th>
                     <th></th>
                 </tr>
             </ng-template>
@@ -72,15 +61,15 @@
                         <p-tableCheckbox [value]="product"></p-tableCheckbox>
                     </td>
                     <td>
-                        <img [src]="product.image" width="50" alt=""  [alt]="product.name" class="shadow-4">
+                        <img [src]="product.image" width="50" alt="" [alt]="product.name" class="shadow-4">
                         {{product.name}}
                     </td>
                     <td>{{product.current_price | currency:currency}}</td>
                     <td>{{product.price_change_percentage_24h}}%</td>
-                    <td>{{product.market_cap}}</td>
+                    <td>{{product.market_cap| currency: currency}}</td>
                     <td>
-                        
-                        <button pButton pRipple label="Details" icon="pi pi-plus" (click)="gotoDetails(product)" class="p-button-success mr-2"></button>
+                        <button pButton pRipple label="Details" icon="pi pi-plus" (click)="gotoDetails(product)"
+                            class="p-button-success mr-2"></button>
                     </td>
                 </tr>
             </ng-template>
@@ -91,6 +80,5 @@
                 </div>
             </ng-template>
         </p-table>
-    </div>   
+    </div>
 </div>
-

@@ -1,58 +1,259 @@
 {
   "register": [
     {
-      "usename": "Kim te",
+      "id": 18,
+      "username": "Trieusadasdasd",
       "sex": "Male",
-      "birth": "2022-07-03T17:00:00.000Z",
+      "birth": "2022-08-01T17:00:00.000Z",
       "type": "individual",
-      "email": "lekimtan06@gmail.com",
-      "phone": 36631925923,
-      "id": 3
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152616"
     },
     {
-      "usename": "Kim Tân",
-      "sex": "Female",
-      "birth": "2022-07-02T17:00:00.000Z",
-      "type": "organization",
-      "email": "lekimtan@gmail.com",
-      "phone": 2656,
-      "id": 4
-    },
-    {
-      "usename": "Kim Tu",
-      "sex": "Female",
-      "birth": "2022-07-04T17:00:00.000Z",
-      "type": "individual",
-      "email": "lekimtan@gmail.com",
-      "phone": 919,
-      "id": 5
-    },
-    {
-      "usename": "mấndas",
+      "username": "Kimtan",
       "sex": "Male",
-      "birth": "2022-07-03T17:00:00.000Z",
-      "type": "organization",
-      "email": "ádsd@sdass",
-      "phone": 3623232312,
-      "id": 7
-    },
-    {
-      "usename": "Kimtan",
-      "sex": "Male",
-      "birth": "2022-07-31T17:00:00.000Z",
-      "type": "organization",
-      "email": "Trieu@gmail.com",
-      "phone": 366319259,
-      "id": 8
-    },
-    {
-      "usename": "KimTan",
-      "sex": "Female",
       "birth": "2022-07-31T17:00:00.000Z",
       "type": "company",
-      "email": "kimtan@gmail.com",
-      "phone": 366319259,
-      "id": 9
+      "email": "lktan@tma.com.vn",
+      "phone": "2023013215",
+      "id": 20
+    },
+    {
+      "_id": null,
+      "username": "Kimtan",
+      "sex": "Female",
+      "birth": "2022-08-08T17:00:00.000Z",
+      "type": "company",
+      "email": "lktan@tma.com.vn",
+      "phone": "0912321132",
+      "id": 21
+    },
+    {
+      "_id": null,
+      "username": "llllllllllllllllllll",
+      "sex": "Male",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915212313",
+      "id": 22
+    },
+    {
+      "_id": null,
+      "username": "kkkkkkkkk",
+      "sex": "Male",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915212313",
+      "id": 23
+    },
+    {
+      "_id": null,
+      "username": "àddsfsdfsdf",
+      "sex": "Female",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152616",
+      "id": 24
+    },
+    {
+      "_id": null,
+      "username": "xfvxcfvbxb",
+      "sex": "Male",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915212313",
+      "id": 25
+    },
+    {
+      "_id": null,
+      "username": "ádfdfsdf",
+      "sex": "Female",
+      "birth": 1660118968273,
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152616",
+      "id": 26
+    },
+    {
+      "_id": null,
+      "username": "sdadasdasd",
+      "sex": "Male",
+      "birth": 1660119039744,
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0912321132",
+      "id": 27
+    },
+    {
+      "id": 29,
+      "username": "Tan Kim",
+      "sex": "Female",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152616"
+    },
+    {
+      "_id": "",
+      "username": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "sex": "Male",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152132",
+      "id": 30
+    },
+    {
+      "_id": null,
+      "username": "sdfsdfsdf",
+      "sex": "Female",
+      "birth": "2022-08-07T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915212313",
+      "id": 31
+    },
+    {
+      "_id": "",
+      "username": "vcbvbcvbcvb",
+      "sex": "Male",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152132",
+      "id": 32
+    },
+    {
+      "_id": null,
+      "username": "fghfghfghfghgfh",
+      "sex": "Male",
+      "birth": 1660119039744,
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0912321132",
+      "id": 33
+    },
+    {
+      "_id": null,
+      "username": "hjghjghjgh",
+      "sex": "Female",
+      "birth": 1660120906917,
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0912321132",
+      "id": 34
+    },
+    {
+      "_id": null,
+      "username": ",kljhikjhkj",
+      "sex": "Female",
+      "birth": 1660120992179,
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152616",
+      "id": 35
+    },
+    {
+      "_id": null,
+      "username": "hjhgjhjh",
+      "sex": "Female",
+      "birth": 1660121069074,
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0912321132",
+      "id": 36
+    },
+    {
+      "_id": null,
+      "username": "ghghjhgj",
+      "sex": "Female",
+      "birth": 1660121157994,
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152616",
+      "id": 37
+    },
+    {
+      "_id": null,
+      "username": "ffdgdfghjghjghj",
+      "sex": "Female",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152132",
+      "id": 38
+    },
+    {
+      "_id": "",
+      "username": "Triều đẹp trai",
+      "sex": "Male",
+      "birth": "2022-08-01T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0912321132",
+      "id": 39
+    },
+    {
+      "_id": "",
+      "username": "Trieu",
+      "sex": "Male",
+      "birth": "2022-08-01T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152616",
+      "id": 40
+    },
+    {
+      "_id": "",
+      "username": "Trieudz",
+      "sex": "Male",
+      "birth": "2022-08-01T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0912321132",
+      "id": 41
+    },
+    {
+      "_id": "",
+      "username": "Trieu",
+      "sex": "Male",
+      "birth": "2022-08-01T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915212313",
+      "id": 42
+    },
+    {
+      "_id": "",
+      "username": "zzzzzzzzzzzzzzzzzzzzzzz",
+      "sex": "Male",
+      "birth": "2022-08-01T17:00:00.000Z",
+      "type": "individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0912321132",
+      "id": 43
+    },
+    {
+      "id": 44,
+      "username": "Trieu co NY",
+      "sex": "Male",
+      "birth": "2022-08-15T17:00:00.000Z",
+      "type": "individual",
+      "email": "trieudang77hoaihuong@gmail.com",
+      "phone": "0375139630"
+    },
+    {
+      "id": 45,
+      "username": "Kim Tan",
+      "sex": "Female",
+      "birth": "2022-08-01T17:00:00.000Z",
+      "type": "individual",
+      "email": "trieudang77hoaihuong@gmail.com",
+      "phone": "0375139630"
     }
   ],
   "ima": [
