@@ -1,16 +1,45 @@
 table {
-    width: 100%;
-  }
-  
-  .mat-form-field {
-    font-size: 10px;
-    width: 100%;
-  }
-  
-  td, th {
-    width: 15%;
-  }
-  .container{
-    max-width: 1500px;
-    margin: 0 auto;
-  }
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 10px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 15%;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.sex {
+  width: 30%;
+  height: 20px;
+  float: left;
+}
+
+.date {
+  width: 50%;
+  ;
+  height: 20px;
+  float: right;
+}
+
+.ep {
+  width: 50%;
+  ;
+  height: 20px;
+  float: left;
+}
+
+.type {
+  width: 30%;
+  ;
+  height: 20px;
+  float: right;
+}
