@@ -8,7 +8,14 @@
     </p-toolbar>
     <p-table [value]="users" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
-
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" placeholder="Search..." [(ngModel)]="searchInput" (input)="handleSearchChange($event)">
+                </span>
+            </div>
+        </ng-template>
         <ng-template pTemplate="header">
             <tr>
                 <th>Username</th>
@@ -76,7 +83,8 @@
                     </div>
                     <div class="date">
                         <h3>Date of birth</h3>
-                        <p-calendar formControlName="birth" [showIcon]="true" dateFormat='MM/dd/yyyy'></p-calendar>
+                        <p-calendar formControlName="birth"   [showIcon]="true"  dateFormat="mm-dd-yy"></p-calendar>
+
                     </div>
                 </div>
                 <br><br><br><br><br>

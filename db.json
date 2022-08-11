@@ -1,32 +1,13 @@
 {
   "register": [
     {
-      "id": 18,
-      "username": "Trieusadasdasd",
+      "id": 20,
+      "username": "Kimtan",
       "sex": "Male",
-      "birth": "2022-08-01T17:00:00.000Z",
-      "type": "individual",
+      "birth": "2022-08-07T17:00:00.000Z",
+      "type": "Individual",
       "email": "lktan@tma.com.vn",
       "phone": "0915152616"
-    },
-    {
-      "username": "Kimtan",
-      "sex": "Male",
-      "birth": "2022-07-31T17:00:00.000Z",
-      "type": "company",
-      "email": "lktan@tma.com.vn",
-      "phone": "2023013215",
-      "id": 20
-    },
-    {
-      "_id": null,
-      "username": "Kimtan",
-      "sex": "Female",
-      "birth": "2022-08-08T17:00:00.000Z",
-      "type": "company",
-      "email": "lktan@tma.com.vn",
-      "phone": "0912321132",
-      "id": 21
     },
     {
       "_id": null,
@@ -50,26 +31,6 @@
     },
     {
       "_id": null,
-      "username": "àddsfsdfsdf",
-      "sex": "Female",
-      "birth": "2022-07-31T17:00:00.000Z",
-      "type": "individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0915152616",
-      "id": 24
-    },
-    {
-      "_id": null,
-      "username": "xfvxcfvbxb",
-      "sex": "Male",
-      "birth": "2022-07-31T17:00:00.000Z",
-      "type": "individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0915212313",
-      "id": 25
-    },
-    {
-      "_id": null,
       "username": "ádfdfsdf",
       "sex": "Female",
       "birth": 1660118968273,
@@ -77,16 +38,6 @@
       "email": "lktan@tma.com.vn",
       "phone": "0915152616",
       "id": 26
-    },
-    {
-      "_id": null,
-      "username": "sdadasdasd",
-      "sex": "Male",
-      "birth": 1660119039744,
-      "type": "individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0912321132",
-      "id": 27
     },
     {
       "id": 29,
@@ -252,6 +203,15 @@
       "sex": "Female",
       "birth": "2022-08-01T17:00:00.000Z",
       "type": "individual",
+      "email": "trieudang77hoaihuong@gmail.com",
+      "phone": "0375139630"
+    },
+    {
+      "id": 46,
+      "username": "dạkdnalsdmasdsad",
+      "sex": "Female",
+      "birth": "2022-08-11T03:16:55.836Z",
+      "type": "Individual",
       "email": "trieudang77hoaihuong@gmail.com",
       "phone": "0375139630"
     }
