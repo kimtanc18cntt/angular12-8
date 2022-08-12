@@ -61,7 +61,7 @@
         <ng-template pTemplate="content" [formGroup]="form">
             <div p-dialog-content>
                 <h3>Username(<span style="color: red;">*</span>)</h3>
-                <div class="col-12 md:col-4">
+                <div class="username">
                     <div class="p-inputgroup">
                         <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
                         <input formControlName="username" type="text" pInputText placeholder="Username">
@@ -91,14 +91,14 @@
                 <div class="e-t">
                     <div class="ep">
                         <h3>Email(<span style="color: red;">*</span>)</h3>
-                        <input formControlName="email" type="text" pInputText placeholder="Email">
+                        <input formControlName="email" type="text" style="width:70%"  pInputText placeholder="Email">
                         <br>
                         <div *ngIf="form.get('email')?.errors && form.get('email')?.touched">
                             <p style="color: red;" *ngIf="form.get('email')?.errors['required']">Email is required</p>
                             <p style="color: red;" *ngIf="form.get('email')?.errors['pattern']">Wrong format</p>
                         </div>
                         <h3>Phone(<span style="color: red;">*</span>)</h3>
-                        <input formControlName="phone" pInputText type="text" placeholder="Phone" [maxLength]="10"
+                        <input formControlName="phone" pInputText style="width:70%" type="text" placeholder="Phone" [maxLength]="10"
                             [minlength]="10">
 
                         <div *ngIf="form.get('phone')?.errors && form.get('phone')?.touched">

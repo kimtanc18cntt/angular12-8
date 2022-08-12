@@ -17,6 +17,10 @@ th {
   margin: 0 auto;
 }
 
+.username{
+  width: 100%;
+}
+
 .sex {
   width: 30%;
   height: 20px;
@@ -24,22 +28,20 @@ th {
 }
 
 .date {
-  width: 50%;
-  ;
+  width: 40%;
   height: 20px;
   float: right;
 }
 
 .ep {
-  width: 50%;
-  ;
+  width: 60%;
   height: 20px;
   float: left;
 }
 
 .type {
-  width: 30%;
+  width: 40%;
   ;
   height: 20px;
-  float: right;
+  float: left;
 }

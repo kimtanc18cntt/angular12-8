@@ -1,25 +1,6 @@
 {
   "register": [
     {
-      "id": 20,
-      "username": "Kimtan",
-      "sex": "Male",
-      "birth": "2022-08-07T17:00:00.000Z",
-      "type": "Individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0915152616"
-    },
-    {
-      "_id": null,
-      "username": "llllllllllllllllllll",
-      "sex": "Male",
-      "birth": "2022-07-31T17:00:00.000Z",
-      "type": "individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0915212313",
-      "id": 22
-    },
-    {
       "_id": null,
       "username": "kkkkkkkkk",
       "sex": "Male",
