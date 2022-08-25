@@ -15,13 +15,12 @@ import { CurrencyService } from 'src/app/service/currency.service';
   styleUrls: ['./coin-list.component.scss']
 })
 export class CoinListComponent implements OnInit {
-
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: SortEvent;
   bannerData = [];
   currency = 'USD';
   dataSource!: any;
   displayedColumns: string[] = ['symbol', 'current_price', 'price_change_percentage_24h', 'market_cap'];
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: SortEvent;
 
   constructor(private api: DataApiService,
     private router: Router,
