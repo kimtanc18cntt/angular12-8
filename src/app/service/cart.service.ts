@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class CartService {
   public productList = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>("");
 
-  constructor() { }
+  constructor(private messageService: MessageService,) { }
 
   getProducts() {
     return this.productList.asObservable();
@@ -49,4 +50,8 @@ export class CartService {
     this.productList.next(this.cartItemList);
   }
   
+  displayMessage(summary: string, detail: string, severity: string = 'success') {
+    this.messageService.add({ severity, summary, detail });
+  }
+
 }

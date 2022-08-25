@@ -9,7 +9,9 @@ import { CurrencyService } from 'src/app/service/currency.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
+  
   selectedCurrency: string = "INR";
   bannerData = [];
   currency = 'USD';
@@ -20,13 +22,12 @@ export class HeaderComponent implements OnInit {
     private cartService: CartService,
     private currencyService: CurrencyService,
   ) { }
-  ngOnInit(): void {
 
+  ngOnInit(): void {
     this.cartService.getProducts()
       .subscribe(res => {
         this.totalItem = res.length;
       })
-
   }
 
   sendCurrency(event: string) {

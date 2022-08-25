@@ -1,26 +1,6 @@
 {
   "register": [
     {
-      "_id": null,
-      "username": "kkkkkkkkk",
-      "sex": "Male",
-      "birth": "2022-07-31T17:00:00.000Z",
-      "type": "individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0915212313",
-      "id": 23
-    },
-    {
-      "_id": null,
-      "username": "ádfdfsdf",
-      "sex": "Female",
-      "birth": 1660118968273,
-      "type": "individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0915152616",
-      "id": 26
-    },
-    {
       "id": 29,
       "username": "Tan Kim",
       "sex": "Female",
@@ -60,14 +40,15 @@
       "id": 32
     },
     {
-      "_id": null,
-      "username": "fghfghfghfghgfh",
+      "id": 33,
+      "username": "ADASDASD",
+      "city": "Chọn Thành Phố",
+      "district": "Quận/Huyện",
       "sex": "Male",
       "birth": 1660119039744,
-      "type": "individual",
+      "type": "Individual",
       "email": "lktan@tma.com.vn",
-      "phone": "0912321132",
-      "id": 33
+      "phone": "0912321132"
     },
     {
       "_id": null,
@@ -195,6 +176,50 @@
       "type": "Individual",
       "email": "trieudang77hoaihuong@gmail.com",
       "phone": "0375139630"
+    },
+    {
+      "id": 47,
+      "username": "Kim TAN",
+      "city": "Quảng Ngãi",
+      "district": "Quận/Huyện",
+      "sex": "Female",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "Individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0912321132"
+    },
+    {
+      "id": 48,
+      "username": "Kim TAN",
+      "city": "Quảng Ngãi",
+      "district": "Huyện Lý Sơn",
+      "sex": "Female",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "Individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0912321132"
+    },
+    {
+      "id": 49,
+      "username": "KIMTAN",
+      "city": "Quảnh Nam",
+      "district": "Huyện Điện Bàn",
+      "sex": "Female",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "Company",
+      "email": "trieudang77hoaihuong@gmail.com",
+      "phone": "0919291115"
+    },
+    {
+      "id": 50,
+      "username": "ÁDASDASD",
+      "city": "Quảnh Nam",
+      "district": "Quận/Huyện",
+      "sex": "Male",
+      "birth": "2022-08-25T09:11:02.241Z",
+      "type": "Individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152616"
     }
   ],
   "ima": [

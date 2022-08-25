@@ -19,8 +19,8 @@ export class ApiregisterService {
     return this.http.post<DataServer>(`${this.BASE_URL}`, data);
   }
 
-  getProduct() {
-    return this.http.get<any>(`${this.BASE_URL}`);
+  getProduct(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.BASE_URL}`);
   }
 
   putProduct(data: any, id: number): Observable<DataServer> {

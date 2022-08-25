@@ -17,7 +17,7 @@ th {
   margin: 0 auto;
 }
 
-.username{
+.username {
   width: 100%;
 }
 
@@ -44,4 +44,39 @@ th {
   ;
   height: 20px;
   float: left;
+}
+
+.out {
+  float: right;
+}
+
+.s-d {
+  margin-top: 50px;
+}
+
+.ct {
+  float: left;
+}
+
+.dt {
+  float: right;
+}
+
+.e-t {
+  margin-top: 170px;
+}
+
+.phone {
+  margin-top: 30px;
+}
+
+.ac{
+  width: 20px;
+  height: 20px;
+}
+
+.p-button-danger{
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
 }

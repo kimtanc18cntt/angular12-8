@@ -7,11 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app3';
+  title = 'app3 app is running!';
   userDialog = false;
-  displayCounter(dialogopen){
-    this.userDialog = dialogopen;
-    console.log(this.userDialog);
-  }
+  
+  
   
 }

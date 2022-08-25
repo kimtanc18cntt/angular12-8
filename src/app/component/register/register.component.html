@@ -12,13 +12,16 @@
             <div class="flex align-items-center justify-content-between">
                 <span class="p-input-icon-left">
                     <i class="pi pi-search"></i>
-                    <input pInputText type="text" placeholder="Search..." [(ngModel)]="searchInput" (input)="handleSearchChange($event)">
+                    <input pInputText type="text" placeholder="Search..." [(ngModel)]="searchInput"
+                        (input)="handleSearchChange()">
                 </span>
             </div>
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
                 <th>Username</th>
+                <th>City</th>
+                <th>District</th>
                 <th>Gender</th>
                 <th>Birth day</th>
                 <th>Phone</th>
@@ -30,14 +33,16 @@
         <ng-template pTemplate="body" let-user>
             <tr>
                 <td>{{user.username}}</td>
+                <td>{{user.city}}</td>
+                <td>{{user.district}}</td>
                 <td>{{user.sex}}</td>
                 <td>{{user.birth | date: 'MM/dd/yyyy'}}</td>
                 <td>{{user.phone}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.type}}</td>
                 <td>
-                    <button pButton type="button" icon="pi pi-pencil" (click)="editUser(user)" iconPos="left"></button>
-                    <button style="margin-left: 20px;" pButton type="button" icon="pi pi-trash" iconPos="left"
+                    <button class="ac" pButton type="button" icon="pi pi-pencil" (click)="editUser(user)" iconPos="left"></button>
+                    <button class="ax" pButton type="button" icon="pi pi-trash" iconPos="left"
                         (click)="handleDeleteUser(user.id)" class="p-button-danger"></button>
                 </td>
             </tr>
@@ -74,6 +79,24 @@
                     </p>
                 </div>
                 <br>
+                <div class="city">
+                    <div class="ct">
+                        Province / City:
+                        <select id="city" (change)="changeCity($event)" formControlName="city">
+                            <option *ngFor="let data of vietnamData" value="{{ data.city }}">
+                                {{ data.city }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="dt">
+                        District:
+                        <select id="district" formControlName="district">
+                            <option *ngFor="let district of districts" value="{{ district }}">
+                                {{ district }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
                 <div class="s-d">
                     <div class="sex">
                         <h3>Gender</h3>
@@ -83,36 +106,39 @@
                     </div>
                     <div class="date">
                         <h3>Date of birth</h3>
-                        <p-calendar formControlName="birth"   [showIcon]="true"  dateFormat="mm-dd-yy"></p-calendar>
+                        <p-calendar formControlName="birth" [showIcon]="true" dateFormat="mm-dd-yy"></p-calendar>
 
                     </div>
                 </div>
-                <br><br><br><br><br>
+
                 <div class="e-t">
                     <div class="ep">
                         <h3>Email(<span style="color: red;">*</span>)</h3>
-                        <input formControlName="email" type="text" style="width:70%"  pInputText placeholder="Email">
+                        <input formControlName="email" type="text" style="width:70%" pInputText placeholder="Email">
                         <br>
                         <div *ngIf="form.get('email')?.errors && form.get('email')?.touched">
                             <p style="color: red;" *ngIf="form.get('email')?.errors['required']">Email is required</p>
                             <p style="color: red;" *ngIf="form.get('email')?.errors['pattern']">Wrong format</p>
                         </div>
-                        <h3>Phone(<span style="color: red;">*</span>)</h3>
-                        <input formControlName="phone" pInputText style="width:70%" type="text" placeholder="Phone" [maxLength]="10"
-                            [minlength]="10">
+                        <div class="phone">
+                            <h3>Phone(<span style="color: red;">*</span>)</h3>
+                            <input formControlName="phone" pInputText style="width:70%" type="text" placeholder="Phone"
+                                [maxLength]="10" [minlength]="10">
 
-                        <div *ngIf="form.get('phone')?.errors && form.get('phone')?.touched">
-                            <p style="color: red;" *ngIf="form.get('phone')?.errors['required']">Phone is required</p>
-                            <p style="color: red;" *ngIf="form.get('phone')?.errors['pattern']">Wrong format</p>
+                            <div *ngIf="form.get('phone')?.errors && form.get('phone')?.touched">
+                                <p style="color: red;" *ngIf="form.get('phone')?.errors['required']">Phone is required
+                                </p>
+                                <p style="color: red;" *ngIf="form.get('phone')?.errors['pattern']">Wrong format</p>
+                            </div>
                         </div>
                     </div>
                     <div class="type">
                         <h3 for=""> Subject</h3>
                         <p-selectButton formControlName="type" [(ngModel)]="value3" [options]="stateOptions1"
                             optionLabel="label" optionValue="value"></p-selectButton>
-
                     </div>
                 </div>
+
             </div>
         </ng-template>
         <ng-template pTemplate="footer">

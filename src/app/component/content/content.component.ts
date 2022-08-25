@@ -12,7 +12,7 @@ export class ContentComponent implements OnInit {
 
   items: MenuItem[];
 
-  constructor(private cartService : CartService) {
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -35,7 +35,5 @@ export class ContentComponent implements OnInit {
   ];
   }
   
-  emptycart(){
-    this.cartService.removeAllCart();
-  }
+
 }
