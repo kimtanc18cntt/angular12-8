@@ -159,11 +159,8 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
 
   changeCity(event: any): void {
     console.log(event);
-    
     const city = event?.value;
     console.log();
-    
-    // const city = event.target.value;
     if (!city) {
       return;
     }
