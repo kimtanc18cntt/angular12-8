@@ -1,3 +1,9 @@
+<ng-container *ngIf="isLoading; else notLoading">
+    <div class="load">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+</ng-container>
+<ng-template #notLoading>
 <div class="banner">
     <div class="conrainer">
         <div class="header">
@@ -78,3 +84,4 @@
         </p-table>
     </div>
 </div>
+</ng-template>

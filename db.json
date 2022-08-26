@@ -40,17 +40,6 @@
       "id": 32
     },
     {
-      "id": 33,
-      "username": "ADASDASD",
-      "city": "Chọn Thành Phố",
-      "district": "Quận/Huyện",
-      "sex": "Male",
-      "birth": 1660119039744,
-      "type": "Individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0912321132"
-    },
-    {
       "_id": null,
       "username": "hjghjghjgh",
       "sex": "Female",
@@ -220,6 +209,168 @@
       "type": "Individual",
       "email": "lktan@tma.com.vn",
       "phone": "0915152616"
+    },
+    {
+      "id": 51,
+      "username": "ádasdasdasd",
+      "city": "Quảng Ngãi",
+      "district": "Huyện Lý Sơn",
+      "sex": "Male",
+      "birth": "2022-08-26T04:47:33.864Z",
+      "type": "Company",
+      "email": "lktan@tma.com.vn",
+      "phone": "0912321132"
+    },
+    {
+      "id": 52,
+      "username": "sadasdasd",
+      "city": "Quảng Ngãi",
+      "district": "Quận/Huyện",
+      "sex": "Female",
+      "birth": "2022-08-26T06:44:57.498Z",
+      "type": "Company",
+      "email": "lktan@tma.com.vn",
+      "phone": "0912321132"
+    },
+    {
+      "id": 53,
+      "username": "ádfdfsdf",
+      "city": "Quảng Ngãi",
+      "district": "Huyện Mộ Đức",
+      "sex": "Female",
+      "birth": "2022-08-21T17:00:00.000Z",
+      "type": "Company",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915212313"
+    },
+    {
+      "id": 54,
+      "username": "sadasd",
+      "city": "Quảng Ngãi",
+      "district": "Quận/Huyện",
+      "sex": "Male",
+      "birth": "2022-08-26T06:48:16.593Z",
+      "type": "Individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915212313"
+    },
+    {
+      "id": 55,
+      "username": "sdadwdsasdasd",
+      "city": {
+        "city": "Phú Yên",
+        "district": [
+          "Thành phố Tuy Hòa",
+          "Thị xã Sông Cầu",
+          "Huyện Đông Hòa",
+          "Huyện Đồng Xuân",
+          "Huyện Phú Hòa",
+          "Huyện Sơn Hòa",
+          "Huyện Sông Hinh",
+          "Huyện Tây Hòa",
+          "Huyện Tuy An"
+        ]
+      },
+      "district": "Thị xã Sông Cầu",
+      "sex": "Male",
+      "birth": "2022-08-26T08:11:36.396Z",
+      "type": "Company",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152616"
+    },
+    {
+      "id": 56,
+      "username": "sdasdasdasd",
+      "city": {
+        "city": "Phú Yên",
+        "district": [
+          "Thành phố Tuy Hòa",
+          "Thị xã Sông Cầu",
+          "Huyện Đông Hòa",
+          "Huyện Đồng Xuân",
+          "Huyện Phú Hòa",
+          "Huyện Sơn Hòa",
+          "Huyện Sông Hinh",
+          "Huyện Tây Hòa",
+          "Huyện Tuy An"
+        ]
+      },
+      "district": "Thị xã Sông Cầu",
+      "sex": "Female",
+      "birth": "2022-08-26T09:41:41.122Z",
+      "type": "Individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0912321132"
+    },
+    {
+      "id": 57,
+      "username": "sdasdasdas",
+      "city": {
+        "city": "Phú Yên",
+        "district": [
+          "Thành phố Tuy Hòa",
+          "Thị xã Sông Cầu",
+          "Huyện Đông Hòa",
+          "Huyện Đồng Xuân",
+          "Huyện Phú Hòa",
+          "Huyện Sơn Hòa",
+          "Huyện Sông Hinh",
+          "Huyện Tây Hòa",
+          "Huyện Tuy An"
+        ]
+      },
+      "district": "Huyện Tây Hòa",
+      "sex": "Female",
+      "birth": "2022-08-14T17:00:00.000Z",
+      "type": "Company",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152616"
+    },
+    {
+      "id": 58,
+      "username": "asdasdas",
+      "city": {
+        "city": "Phú Yên",
+        "district": [
+          "Thành phố Tuy Hòa",
+          "Thị xã Sông Cầu",
+          "Huyện Đông Hòa",
+          "Huyện Đồng Xuân",
+          "Huyện Phú Hòa",
+          "Huyện Sơn Hòa",
+          "Huyện Sông Hinh",
+          "Huyện Tây Hòa",
+          "Huyện Tuy An"
+        ]
+      },
+      "district": "Huyện Sơn Hòa",
+      "sex": "Female",
+      "birth": "2022-08-26T10:41:16.184Z",
+      "type": "Individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915212313"
+    },
+    {
+      "id": 59,
+      "username": "sdsads",
+      "city": "Quảng Ngãi",
+      "district": "Quận/Huyện",
+      "sex": "Male",
+      "birth": "2022-08-26T10:43:24.719Z",
+      "type": "Individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152616"
+    },
+    {
+      "id": 60,
+      "username": "duong",
+      "city": "Đà Nẵng",
+      "district": "Quận Cẩm Lệ",
+      "sex": "Male",
+      "birth": "2022-08-26T10:48:18.342Z",
+      "type": "Individual",
+      "email": "trieudang77hoaihuong@gmail.com",
+      "phone": "0375139630"
     }
   ],
   "ima": [

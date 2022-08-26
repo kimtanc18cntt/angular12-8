@@ -15,7 +15,7 @@ import { CurrencyService } from 'src/app/service/currency.service';
   styleUrls: ['./coin-list.component.scss']
 })
 export class CoinListComponent implements OnInit {
-
+  isLoading = false;
   bannerData = [];
   currency = 'USD';
   dataSource!: any;
@@ -29,6 +29,7 @@ export class CoinListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLoading=true;
     this.getAllData();
     this.getBannerData();
     this.currencyService.getCurrency()
@@ -36,6 +37,7 @@ export class CoinListComponent implements OnInit {
         this.currency = val;
         this.getAllData();
         this.getBannerData();
+        this.isLoading=false;
       })
   }
 
@@ -53,6 +55,7 @@ export class CoinListComponent implements OnInit {
         this.dataSource = res
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this.isLoading=false;
       })
   }
 

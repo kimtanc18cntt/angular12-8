@@ -3,19 +3,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { from, mergeMap, Observer } from 'rxjs';
 
-import {DataServer } from '../../data';
+import { DataServer } from '../../data';
 import { ApiregisterService } from '../../service/apiregister.service';
 import { User } from 'src/app/user';
 import { VndistricService } from 'src/app/service/vndistric.service';
 import { __values } from 'tslib';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit, AfterViewChecked{
-
+export class RegisterComponent implements OnInit, AfterViewChecked {
+  isLoading = false;
   displayDialog = false;
   selectedUser: User = {
     id: '1'
@@ -23,7 +24,7 @@ export class RegisterComponent implements OnInit, AfterViewChecked{
   users!: User[];
   usersTemp!: User[];
   searchInput: string;
-  loading!: boolean;
+
   userDialog = false;
   value1: string = "Male";
   value3: string = "Individual";
@@ -31,8 +32,10 @@ export class RegisterComponent implements OnInit, AfterViewChecked{
   stateOptions1: any[];
   form!: FormGroup;
   observer: Observer<any>;
-  districts=['Quận / Huyện'];
-  vietnamData:any[];
+  districts = ['Quận / Huyện'];
+  vietnamData: any[];
+  error: string;
+
   constructor(
     private userService: ApiregisterService,
     private fb: FormBuilder,
@@ -40,11 +43,12 @@ export class RegisterComponent implements OnInit, AfterViewChecked{
     private cd: ChangeDetectorRef,
     private messageService: MessageService,
     private vn: VndistricService,
-     ) {
-     }
+  ) {
+  }
 
   ngOnInit(): void {
     this.getUsers();
+
     this.form = this.fb.group({
       id: [''],
       username: ['', [Validators.required, Validators.minLength(5)]],
@@ -56,21 +60,23 @@ export class RegisterComponent implements OnInit, AfterViewChecked{
       email: ['', [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]],
       phone: ['', [Validators.required, Validators.pattern('^(0|84)(2(0[3-9]|1[0-6|8|9]|2[0-2|5-9]|3[2-9]|4[0-9]|5[1|2|4-9]|6[0-3|9]|7[0-7]|8[0-9]|9[0-4|6|7|9])|3[2-9]|5[5|6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])([0-9]{7})$')]]
     });
-    this.observer= {
+    this.observer = {
       next: (data: DataServer) => {
-        this.userDialog = false
-        this.searchInput = ''
-        this.getUsers()
+        this.userDialog = false;
+        this.searchInput = '';
+        this.getUsers();
       },
       error: ({ error }: any) => {
-    this.messageService.add({severity:'error', summary: 'Error', detail: 'Server Error'});
-      }, 
-      complete: () => {}
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Server Error' });
+      },
+      complete: () => { }
     };
     this.stateOptions = [{ label: 'Male', value: 'Male' }, { label: 'Female', value: 'Female' }];
-    this.stateOptions1 = [{ label: 'Individual', value: 'Individual' },{ label: 'Company', value: 'Company' }] ;
+    this.stateOptions1 = [{ label: 'Individual', value: 'Individual' }, { label: 'Company', value: 'Company' }];
     this.form.get('birth').setValue(new Date());
-    this.vietnamData= this.vn.getdistric();
+    this.vietnamData = this.vn.getdistric();
+    console.log(this.vietnamData);
+
   }
 
   ngAfterViewChecked(): void {
@@ -78,39 +84,49 @@ export class RegisterComponent implements OnInit, AfterViewChecked{
   }
 
   openNew() {
-    this.userDialog = true
+    this.userDialog = true;
     // this.form.reset({birth: Date.now()})
   }
 
   editUser(user: User) {
-    console.log(user)
-    this.userDialog = true
-    this.form.patchValue(user)  
+    console.log(user);
+    this.userDialog = true;
+    this.form.patchValue(user);
   }
-  
+
   hideDialog() {
-    this.userDialog = false
+    this.userDialog = false;
   }
 
   getUsers() {
-    this.loading = true
+    console.log('getUsers');
+    setTimeout(() => {
+
+    }, 50000);
+    this.isLoading = true;
+
     this.userService.getProduct().subscribe({
       next: (data) => {
+
         this.users = this.usersTemp = data;
+        this.isLoading = false;
       },
-      error: () => {
+      error: (error) => {
+        console.log('error' + error.message);
+        this.isLoading = false;
+        this.userService.displayMessage('Error', error.message, 'error');
       }
     });
   }
 
   saveUser(form: FormGroup) {
     form.markAllAsTouched();
-    if(form.invalid) { return; }
+    if (form.invalid) { return; }
     // EDIT
-    if(form.value.id) {
-      this.userService.putProduct(this.form.value, this.form.value.id).subscribe(this.observer)
+    if (form.value.id) {
+      this.userService.putProduct(this.form.value, this.form.value.id).subscribe(this.observer);
       this.userService.displayMessage('Successfully', 'User update');
-      this.form.reset();           
+      this.form.reset();
     }
     // CREATE
     else {
@@ -133,19 +149,25 @@ export class RegisterComponent implements OnInit, AfterViewChecked{
   }
 
   handleSearchChange() {
-    let newUsers = this.usersTemp.filter(user => user.username?.toLowerCase().includes(this.searchInput.toLowerCase()))
-    this.users = newUsers
+    let newUsers = this.usersTemp.filter(user => user.username?.toLowerCase().includes(this.searchInput.toLowerCase()));
+    this.users = newUsers;
   }
-  
+
   getAllProducts() {
     this.userService.getProduct().subscribe(data => this.users = data);
   }
-  changeCity(event: any):void{
-    const city = event.target.value;
+
+  changeCity(event: any): void {
+    console.log(event);
+    
+    const city = event?.value;
+    console.log();
+    
+    // const city = event.target.value;
     if (!city) {
       return;
     }
-    this.districts =
-      this.vietnamData.find((data) => data.city === city)?.district || [];
+    this.districts = this.vietnamData.find(data => data.city === city)?.district || [];
+    console.log(this.districts);
   }
 }

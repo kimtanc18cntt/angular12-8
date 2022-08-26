@@ -1,152 +1,167 @@
-<div class="card">
-    <p-toolbar styleClass="my-4">
-        <ng-template pTemplate="left">
-            <button pButton pRipple label="Register" icon="pi pi-plus" class="p-button-success mr-2"
-                (click)="openNew()"></button>
+<ng-container *ngIf="isLoading; else notLoading">
+    <div class="load">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+</ng-container>
+<ng-template #notLoading>
+    <div class="card">
+        <p-toolbar styleClass="my-4">
+            <ng-template pTemplate="left">
+                <button pButton pRipple label="Register" icon="pi pi-plus" class="p-button-success mr-2"
+                    (click)="openNew()"></button>
 
-        </ng-template>
-    </p-toolbar>
-    <p-table [value]="users" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
-        <ng-template pTemplate="caption">
-            <div class="flex align-items-center justify-content-between">
-                <span class="p-input-icon-left">
-                    <i class="pi pi-search"></i>
-                    <input pInputText type="text" placeholder="Search..." [(ngModel)]="searchInput"
-                        (input)="handleSearchChange()">
-                </span>
+            </ng-template>
+        </p-toolbar>
+        <p-table [value]="users" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
+            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+            <ng-template pTemplate="caption">
+                <div class="flex align-items-center justify-content-between">
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" placeholder="Search..." [(ngModel)]="searchInput"
+                            (input)="handleSearchChange()">
+                    </span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Username</th>
+                    <th>City</th>
+                    <th>District</th>
+                    <th>Gender</th>
+                    <th>Birth day</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-user>
+                <tr>
+                    <td>{{user.username}}</td>
+                    <td>{{user.city}}</td>
+                    <td>{{user.district}}</td>
+                    <td>{{user.sex}}</td>
+                    <td>{{user.birth | date: 'MM/dd/yyyy'}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.type}}</td>
+                    <td>
+                        <button class="ac" pButton type="button" icon="pi pi-pencil" (click)="editUser(user)"
+                            iconPos="left"></button>
+                        <button class="ax" pButton type="button" icon="pi pi-trash" iconPos="left"
+                            (click)="handleDeleteUser(user.id)" class="p-button-danger"></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <p-confirmDialog header="Delete" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+            <p-dialog header="Title" [(visible)]="displayDialog">
+                Content {{selectedUser.username}}
+                <input type="text" pInputText [value]="selectedUser.username">
+            </p-dialog>
+            <div *ngIf="users">
+                <h1>Loading...</h1>
             </div>
-        </ng-template>
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Username</th>
-                <th>City</th>
-                <th>District</th>
-                <th>Gender</th>
-                <th>Birth day</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Subject</th>
-                <th>Action</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-user>
-            <tr>
-                <td>{{user.username}}</td>
-                <td>{{user.city}}</td>
-                <td>{{user.district}}</td>
-                <td>{{user.sex}}</td>
-                <td>{{user.birth | date: 'MM/dd/yyyy'}}</td>
-                <td>{{user.phone}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.type}}</td>
-                <td>
-                    <button class="ac" pButton type="button" icon="pi pi-pencil" (click)="editUser(user)" iconPos="left"></button>
-                    <button class="ax" pButton type="button" icon="pi pi-trash" iconPos="left"
-                        (click)="handleDeleteUser(user.id)" class="p-button-danger"></button>
-                </td>
-            </tr>
-        </ng-template>
-        <p-confirmDialog header="Delete" icon="pi pi-exclamation-triangle"></p-confirmDialog>
-        <p-dialog header="Title" [(visible)]="displayDialog">
-            Content {{selectedUser.username}}
-            <input type="text" pInputText [value]="selectedUser.username">
-        </p-dialog>
-        <div *ngIf="users">
-            <h1>Loading...</h1>
-        </div>
-        <ng-template pTemplate="summary">
-            <div class="flex align-items-center justify-content-between">
-                In total there are {{users?.length}} users
-            </div>
-        </ng-template>
-    </p-table>
-    <p-dialog [(visible)]="userDialog" class="plog" [style]="{ height:'70%',width:'40%'}" header="Register"
-        [modal]="true" styleClass="p-fluid">
-        <ng-template pTemplate="content" [formGroup]="form">
-            <div p-dialog-content>
-                <h3>Username(<span style="color: red;">*</span>)</h3>
-                <div class="username">
-                    <div class="p-inputgroup">
-                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                        <input formControlName="username" type="text" pInputText placeholder="Username">
-                    </div>
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-between">
+                    In total there are {{users?.length}} users
                 </div>
-                <div *ngIf="form.get('username')?.errors && form.get('username')?.touched">
-                    <p style="color: red;" *ngIf="form.get('username')?.errors['required']">Username is required</p>
-                    <p style="color: red;" *ngIf="form.get('username')?.errors['minlength']">Username must long on 5
-                        character
-                    </p>
-                </div>
-                <br>
-                <div class="city">
-                    <div class="ct">
-                        Province / City:
-                        <select id="city" (change)="changeCity($event)" formControlName="city">
-                            <option *ngFor="let data of vietnamData" value="{{ data.city }}">
-                                {{ data.city }}
-                            </option>
-                        </select>
-                    </div>
-                    <div class="dt">
-                        District:
-                        <select id="district" formControlName="district">
-                            <option *ngFor="let district of districts" value="{{ district }}">
-                                {{ district }}
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="s-d">
-                    <div class="sex">
-                        <h3>Gender</h3>
-                        <p-selectButton formControlName="sex" [(ngModel)]="value1" [options]="stateOptions"
-                            optionLabel="label" optionValue="value"></p-selectButton>
-
-                    </div>
-                    <div class="date">
-                        <h3>Date of birth</h3>
-                        <p-calendar formControlName="birth" [showIcon]="true" dateFormat="mm-dd-yy"></p-calendar>
-
-                    </div>
-                </div>
-
-                <div class="e-t">
-                    <div class="ep">
-                        <h3>Email(<span style="color: red;">*</span>)</h3>
-                        <input formControlName="email" type="text" style="width:70%" pInputText placeholder="Email">
-                        <br>
-                        <div *ngIf="form.get('email')?.errors && form.get('email')?.touched">
-                            <p style="color: red;" *ngIf="form.get('email')?.errors['required']">Email is required</p>
-                            <p style="color: red;" *ngIf="form.get('email')?.errors['pattern']">Wrong format</p>
+            </ng-template>
+        </p-table>
+        <p-dialog [(visible)]="userDialog" class="plog" [style]="{ height:'70%',width:'40%'}" header="Register"
+            [modal]="true" styleClass="p-fluid">
+            <ng-template pTemplate="content" [formGroup]="form">
+                <div p-dialog-content>
+                    <h3>Username(<span style="color: red;">*</span>)</h3>
+                    <div class="username">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                            <input formControlName="username" type="text" pInputText placeholder="Username">
                         </div>
-                        <div class="phone">
-                            <h3>Phone(<span style="color: red;">*</span>)</h3>
-                            <input formControlName="phone" pInputText style="width:70%" type="text" placeholder="Phone"
-                                [maxLength]="10" [minlength]="10">
+                    </div>
+                    <div *ngIf="form.get('username')?.errors && form.get('username')?.touched">
+                        <p style="color: red;" *ngIf="form.get('username')?.errors['required']">Username is required</p>
+                        <p style="color: red;" *ngIf="form.get('username')?.errors['minlength']">Username must long on 5
+                            character
+                        </p>
+                    </div>
+                    <br>
+                    
 
-                            <div *ngIf="form.get('phone')?.errors && form.get('phone')?.touched">
-                                <p style="color: red;" *ngIf="form.get('phone')?.errors['required']">Phone is required
+                    <div class="city">
+                        <p-dropdown (onChange)="changeCity($event)" [options]="vietnamData" formControlName="city" optionLabel="city" optionValue="city" [showClear]="true"></p-dropdown>
+                        <p-dropdown [options]="districts" formControlName="district" [showClear]="true"></p-dropdown>
+                        <div class="ct">
+                            Province / City:
+                            <select id="city" (change)="changeCity($event)" formControlName="city">
+                                <option *ngFor="let data of vietnamData" value="{{ data.city }}">
+
+                                    {{ data.city }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="dt">
+                            District:
+                            <select id="district" formControlName="district">
+                                <option *ngFor="let district of districts" value="{{ district }}">
+                                    {{ district}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="s-d">
+                        <div class="sex">
+                            <h3>Gender</h3>
+                            <p-selectButton formControlName="sex" [(ngModel)]="value1" [options]="stateOptions"
+                                optionLabel="label" optionValue="value"></p-selectButton>
+
+                        </div>
+                        <div class="date">
+                            <h3>Date of birth</h3>
+                            <p-calendar formControlName="birth" [showIcon]="true" dateFormat="mm-dd-yy"></p-calendar>
+
+                        </div>
+                    </div>
+
+                    <div class="e-t">
+                        <div class="ep">
+                            <h3>Email(<span style="color: red;">*</span>)</h3>
+                            <input formControlName="email" type="text" style="width:70%" pInputText placeholder="Email">
+                            <br>
+                            <div *ngIf="form.get('email')?.errors && form.get('email')?.touched">
+                                <p style="color: red;" *ngIf="form.get('email')?.errors['required']">Email is required
                                 </p>
-                                <p style="color: red;" *ngIf="form.get('phone')?.errors['pattern']">Wrong format</p>
+                                <p style="color: red;" *ngIf="form.get('email')?.errors['pattern']">Wrong format</p>
+                            </div>
+                            <div class="phone">
+                                <h3>Phone(<span style="color: red;">*</span>)</h3>
+                                <input formControlName="phone" pInputText style="width:70%" type="text"
+                                    placeholder="Phone" [maxLength]="10" [minlength]="10">
+
+                                <div *ngIf="form.get('phone')?.errors && form.get('phone')?.touched">
+                                    <p style="color: red;" *ngIf="form.get('phone')?.errors['required']">Phone is
+                                        required
+                                    </p>
+                                    <p style="color: red;" *ngIf="form.get('phone')?.errors['pattern']">Wrong format</p>
+                                </div>
                             </div>
                         </div>
+                        <div class="type">
+                            <h3 for=""> Subject</h3>
+                            <p-selectButton formControlName="type" [(ngModel)]="value3" [options]="stateOptions1"
+                                optionLabel="label" optionValue="value"></p-selectButton>
+                        </div>
                     </div>
-                    <div class="type">
-                        <h3 for=""> Subject</h3>
-                        <p-selectButton formControlName="type" [(ngModel)]="value3" [options]="stateOptions1"
-                            optionLabel="label" optionValue="value"></p-selectButton>
-                    </div>
-                </div>
 
-            </div>
-        </ng-template>
-        <ng-template pTemplate="footer">
-            <button pButton pRipple class="p-button-success mr-2" class="p-button-secondary"
-                (click)=" hideDialog()">Close</button>
-            <button pButton pRipple color="primary" style="margin-left: 8px;" class="p-button"
-                (click)="saveUser(form)">Save</button>
-        </ng-template>
-    </p-dialog>
-    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
-</div>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="footer">
+                <button pButton pRipple class="p-button-success mr-2" class="p-button-secondary"
+                    (click)=" hideDialog()">Close</button>
+                <button pButton pRipple color="primary" style="margin-left: 8px;" class="p-button"
+                    (click)="saveUser(form)">Save</button>
+            </ng-template>
+        </p-dialog>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</ng-template>

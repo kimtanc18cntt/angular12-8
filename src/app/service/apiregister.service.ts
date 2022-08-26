@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { User } from '../user';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { DataServer } from '../data'
 
@@ -31,7 +31,7 @@ export class ApiregisterService {
     return this.http.delete<DataServer>(`${this.BASE_URL}/${id}`);
   }
   
-  displayMessage(summary: string, detail: string, severity: string = 'success') {
+  displayMessage(summary: string, detail: string, severity = 'success') {
     this.messageService.add({ severity, summary, detail })
   }
 }
