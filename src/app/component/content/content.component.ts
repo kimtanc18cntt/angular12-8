@@ -26,12 +26,8 @@ export class ContentComponent implements OnInit {
       label: 'Menber',
       icon: 'pi pi-fw pi-file',
       url: '/register'
-    },
-      {
-          label: 'Product',
-          icon: 'pi pi-fw pi-bookmark-fill',
-          url: '/products'        
-      },
+    }
+      
   ];
   }
   

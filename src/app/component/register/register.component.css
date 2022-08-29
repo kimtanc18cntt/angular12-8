@@ -21,17 +21,7 @@ th {
   width: 100%;
 }
 
-.sex {
-  width: 30%;
-  height: 20px;
-  float: left;
-}
 
-.date {
-  width: 40%;
-  height: 20px;
-  float: right;
-}
 
 .ep {
   width: 60%;
@@ -51,19 +41,31 @@ th {
 }
 
 .s-d {
-  margin-top: 50px;
+  margin-top: 124px;
 }
 
 .ct {
+  width: 40%;
   float: left;
 }
 
 .dt {
+  width: 40%;
   float: right;
 }
+.sex {
+  width: 30%;
+  height: 20px;
+  float: left;
+}
 
+.date {
+  width: 40%;
+  height: 20px;
+  float: right;
+}
 .e-t {
-  margin-top: 170px;
+  margin-top: 230px;
 }
 
 .phone {

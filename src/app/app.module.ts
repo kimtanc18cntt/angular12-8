@@ -47,6 +47,7 @@ import { KeyFilterModule } from 'primeng/keyfilter';
 import { CoinDetailComponent } from './component/coin-detail/coin-detail.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DialogModule } from 'primeng/dialog';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,9 @@ import { DialogModule } from 'primeng/dialog';
     RatingModule,
     KeyFilterModule,
     ProgressSpinnerModule,
-    DialogModule
+    DialogModule,
+    Ng2SearchPipeModule,
+
   ],
   providers: [
     MessageService,

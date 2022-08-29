@@ -7,6 +7,8 @@ import {HttpClient} from '@angular/common/http';
 export class DataApiService {
 
   constructor( private http : HttpClient) { }
+
+  private url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&sparkline=false';
  
   getCurrency(currency:string){
     return this.http.get<any>(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&sparkline=false`);
@@ -24,4 +26,7 @@ export class DataApiService {
     return this.http.get<any>(`https://api.coingecko.com/api/v3/coins/${coinId}`)
   }
   
+  getUsers(page: number){
+    return this.http.get(this.url + '?page=' + page);
+  }
 }

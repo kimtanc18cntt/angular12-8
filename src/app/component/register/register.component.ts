@@ -24,17 +24,16 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
   users!: User[];
   usersTemp!: User[];
   searchInput: string;
-
   userDialog = false;
-  value1: string = "Male";
-  value3: string = "Individual";
   stateOptions: any[];
   stateOptions1: any[];
   form!: FormGroup;
   observer: Observer<any>;
-  districts = ['Quận / Huyện'];
+  districts = ['District'];
   vietnamData: any[];
   error: string;
+  isSubmitted = false;
+  dataSource!: any;
 
   constructor(
     private userService: ApiregisterService,
@@ -48,15 +47,16 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
 
   ngOnInit(): void {
     this.getUsers();
+    
 
     this.form = this.fb.group({
       id: [''],
       username: ['', [Validators.required, Validators.minLength(5)]],
-      city: ['Chọn Thành Phố', Validators.required],
-      district: ['Quận/Huyện', Validators.required],
-      sex: ['', Validators.required],
-      birth: ['', Validators.required],
-      type: ['', Validators.required],
+      city: ['',  Validators.required],
+      district: ['', Validators.required],
+      sex: ["Male", Validators.required],
+      birth: [new Date(), Validators.required],
+      type: ["Individual", Validators.required],
       email: ['', [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]],
       phone: ['', [Validators.required, Validators.pattern('^(0|84)(2(0[3-9]|1[0-6|8|9]|2[0-2|5-9]|3[2-9]|4[0-9]|5[1|2|4-9]|6[0-3|9]|7[0-7]|8[0-9]|9[0-4|6|7|9])|3[2-9]|5[5|6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])([0-9]{7})$')]]
     });
@@ -73,7 +73,6 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
     };
     this.stateOptions = [{ label: 'Male', value: 'Male' }, { label: 'Female', value: 'Female' }];
     this.stateOptions1 = [{ label: 'Individual', value: 'Individual' }, { label: 'Company', value: 'Company' }];
-    this.form.get('birth').setValue(new Date());
     this.vietnamData = this.vn.getdistric();
     console.log(this.vietnamData);
 
@@ -85,7 +84,6 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
 
   openNew() {
     this.userDialog = true;
-    // this.form.reset({birth: Date.now()})
   }
 
   editUser(user: User) {
@@ -96,6 +94,8 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
 
   hideDialog() {
     this.userDialog = false;
+    this.isSubmitted = false;
+    this.form.updateValueAndValidity();
   }
 
   getUsers() {
@@ -107,6 +107,7 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
 
     this.userService.getProduct().subscribe({
       next: (data) => {
+
 
         this.users = this.usersTemp = data;
         this.isLoading = false;
@@ -120,22 +121,25 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
   }
 
   saveUser(form: FormGroup) {
+    this.isSubmitted = true;
     form.markAllAsTouched();
     if (form.invalid) { return; }
     // EDIT
     if (form.value.id) {
       this.userService.putProduct(this.form.value, this.form.value.id).subscribe(this.observer);
       this.userService.displayMessage('Successfully', 'User update');
-      this.form.reset();
+      this.isSubmitted = false;
+      this.ngOnInit();
     }
     // CREATE
     else {
       this.userService.postProduct(this.form.value).subscribe(this.observer);
       this.userService.displayMessage('Successfully', 'User created');
-      this.form.reset();
+      this.isSubmitted = false;
+      this.ngOnInit();
     }
   }
-
+  
   handleDeleteUser(id: string) {
     this.confirmationService.confirm({
       message: 'Are you sure you want to delete?',

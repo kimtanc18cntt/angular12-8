@@ -9,7 +9,7 @@ export class VndistricService {
   getdistric(){
     let vietnamData:any[];
      vietnamData=[
-      {city:'Chọn thành phố', district:['Quận / Huyện']},
+      {city:'Choose province', district:['District']},
       {city:'Đà Nẵng', 
       district:[
         "Quận Cẩm Lệ",

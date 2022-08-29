@@ -1,8 +1,5 @@
 
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { SortEvent } from 'primeng/api';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/product';
 
@@ -19,9 +16,11 @@ export class CoinListComponent implements OnInit {
   bannerData = [];
   currency = 'USD';
   dataSource!: any;
+  ProductTemp!: Product[];
+  Products!: Product[];
+  searchInput: string;
   displayedColumns: string[] = ['symbol', 'current_price', 'price_change_percentage_24h', 'market_cap'];
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: SortEvent;
+
 
   constructor(private api: DataApiService,
     private router: Router,
@@ -53,8 +52,7 @@ export class CoinListComponent implements OnInit {
       .subscribe(res => {
         console.log(res);
         this.dataSource = res
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+    
         this.isLoading=false;
       })
   }
@@ -71,5 +69,8 @@ export class CoinListComponent implements OnInit {
     console.log(row);
     this.router.navigate(['coin-detail', row.id])
   }
+
+
+ 
 
 }

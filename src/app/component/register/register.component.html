@@ -26,7 +26,7 @@
             <ng-template pTemplate="header">
                 <tr>
                     <th>Username</th>
-                    <th>City</th>
+                    <th>Province</th>
                     <th>District</th>
                     <th>Gender</th>
                     <th>Birth day</th>
@@ -37,7 +37,7 @@
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-user>
-                <tr>
+                <tr >
                     <td>{{user.username}}</td>
                     <td>{{user.city}}</td>
                     <td>{{user.district}}</td>
@@ -68,7 +68,7 @@
                 </div>
             </ng-template>
         </p-table>
-        <p-dialog [(visible)]="userDialog" class="plog" [style]="{ height:'70%',width:'40%'}" header="Register"
+        <p-dialog [(visible)]="userDialog" class="plog" [style]="{ height:'80%',width:'40%'}" header="Register"
             [modal]="true" styleClass="p-fluid">
             <ng-template pTemplate="content" [formGroup]="form">
                 <div p-dialog-content>
@@ -79,7 +79,7 @@
                             <input formControlName="username" type="text" pInputText placeholder="Username">
                         </div>
                     </div>
-                    <div *ngIf="form.get('username')?.errors && form.get('username')?.touched">
+                    <div *ngIf="form.get('username')?.invalid && isSubmitted && (form.get('username')?.touched || form.get('username')?.dirty)">
                         <p style="color: red;" *ngIf="form.get('username')?.errors['required']">Username is required</p>
                         <p style="color: red;" *ngIf="form.get('username')?.errors['minlength']">Username must long on 5
                             character
@@ -88,33 +88,27 @@
                     <br>
                     
 
-                    <div class="city">
-                        <p-dropdown (onChange)="changeCity($event)" [options]="vietnamData" formControlName="city" optionLabel="city" optionValue="city" [showClear]="true"></p-dropdown>
-                        <p-dropdown [options]="districts" formControlName="district" [showClear]="true"></p-dropdown>
+                    <div class="city"> 
                         <div class="ct">
-                            Province / City:
-                            <select id="city" (change)="changeCity($event)" formControlName="city">
-                                <option *ngFor="let data of vietnamData" value="{{ data.city }}">
-
-                                    {{ data.city }}
-                                </option>
-                            </select>
+                            <h3>Province(<span style="color: red;">*</span>)</h3>
+                            <p-dropdown (onChange)="changeCity($event)" [options]="vietnamData" formControlName="city" optionLabel="city" optionValue="city" [showClear]="true"></p-dropdown>
+                            <div *ngIf="form.get('city')?.errors && isSubmitted && form.get('city')?.errors['required']">
+                                <p style="color: red;">Choose province</p>
+                            </div>
                         </div>
                         <div class="dt">
-                            District:
-                            <select id="district" formControlName="district">
-                                <option *ngFor="let district of districts" value="{{ district }}">
-                                    {{ district}}
-                                </option>
-                            </select>
+                            <h3>District(<span style="color: red;">*</span>)</h3>
+                            <p-dropdown [options]="districts" formControlName="district" [showClear]="true"></p-dropdown>
+                            <div *ngIf="form.get('district')?.errors && isSubmitted && form.get('district')?.errors['required']">
+                                <p style="color: red;">Choose district</p>
+                            </div>
                         </div>
                     </div>
                     <div class="s-d">
                         <div class="sex">
                             <h3>Gender</h3>
-                            <p-selectButton formControlName="sex" [(ngModel)]="value1" [options]="stateOptions"
+                            <p-selectButton formControlName="sex" [options]="stateOptions"
                                 optionLabel="label" optionValue="value"></p-selectButton>
-
                         </div>
                         <div class="date">
                             <h3>Date of birth</h3>
@@ -128,7 +122,7 @@
                             <h3>Email(<span style="color: red;">*</span>)</h3>
                             <input formControlName="email" type="text" style="width:70%" pInputText placeholder="Email">
                             <br>
-                            <div *ngIf="form.get('email')?.errors && form.get('email')?.touched">
+                            <div *ngIf="form.get('email')?.errors && isSubmitted && form.get('email')?.touched">
                                 <p style="color: red;" *ngIf="form.get('email')?.errors['required']">Email is required
                                 </p>
                                 <p style="color: red;" *ngIf="form.get('email')?.errors['pattern']">Wrong format</p>
@@ -138,7 +132,7 @@
                                 <input formControlName="phone" pInputText style="width:70%" type="text"
                                     placeholder="Phone" [maxLength]="10" [minlength]="10">
 
-                                <div *ngIf="form.get('phone')?.errors && form.get('phone')?.touched">
+                                <div *ngIf="form.get('phone')?.errors && isSubmitted && form.get('phone')?.touched">
                                     <p style="color: red;" *ngIf="form.get('phone')?.errors['required']">Phone is
                                         required
                                     </p>
@@ -148,7 +142,7 @@
                         </div>
                         <div class="type">
                             <h3 for=""> Subject</h3>
-                            <p-selectButton formControlName="type" [(ngModel)]="value3" [options]="stateOptions1"
+                            <p-selectButton formControlName="type" [options]="stateOptions1"
                                 optionLabel="label" optionValue="value"></p-selectButton>
                         </div>
                     </div>
@@ -157,7 +151,7 @@
             </ng-template>
             <ng-template pTemplate="footer">
                 <button pButton pRipple class="p-button-success mr-2" class="p-button-secondary"
-                    (click)=" hideDialog()">Close</button>
+                    (click)="hideDialog()">Close</button>
                 <button pButton pRipple color="primary" style="margin-left: 8px;" class="p-button"
                     (click)="saveUser(form)">Save</button>
             </ng-template>
