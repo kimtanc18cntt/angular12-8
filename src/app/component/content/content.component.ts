@@ -1,7 +1,5 @@
-import { Component, OnInit, Input,  } from '@angular/core';
-import {MenuItem} from 'primeng/api';
-
-import { CartService } from 'src/app/service/cart.service';
+import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-content',
@@ -21,15 +19,19 @@ export class ContentComponent implements OnInit {
         label: 'Home page',
         icon: 'pi pi-fw pi-home',
         url: '/home'
-    },
-    {
-      label: 'Menber',
-      icon: 'pi pi-fw pi-file',
-      url: '/register'
-    }
-      
-  ];
+      },
+      {
+        label: 'Menber',
+        icon: 'pi pi-fw pi-file',
+        url: '/register'
+      },
+      {
+        label: 'Products',
+        icon: 'pi pi-fw pi-dollar',
+        url: '/product'
+      }
+
+    ];
   }
-  
 
 }

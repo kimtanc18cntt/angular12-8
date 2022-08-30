@@ -21,7 +21,7 @@ export class VndistricService {
         "Huyện Hòa Vang",
         "Huyện Hoàng Sa"
       ]},
-      {city:'Quảnh Nam', 
+      {city:'Quảng Nam', 
       district:[
         "Thành phố Hội An",
         "Thành phố Tam Kỳ",

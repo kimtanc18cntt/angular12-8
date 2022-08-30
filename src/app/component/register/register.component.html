@@ -9,7 +9,6 @@
             <ng-template pTemplate="left">
                 <button pButton pRipple label="Register" icon="pi pi-plus" class="p-button-success mr-2"
                     (click)="openNew()"></button>
-
             </ng-template>
         </p-toolbar>
         <p-table [value]="users" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
@@ -37,7 +36,7 @@
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-user>
-                <tr >
+                <tr>
                     <td>{{user.username}}</td>
                     <td>{{user.city}}</td>
                     <td>{{user.district}}</td>
@@ -68,7 +67,7 @@
                 </div>
             </ng-template>
         </p-table>
-        <p-dialog [(visible)]="userDialog" class="plog" [style]="{ height:'80%',width:'40%'}" header="Register"
+        <p-dialog [(visible)]="userDialog" class="plog" [style]="{ height:'80%',width:'40%' }" header="Register"
             [modal]="true" styleClass="p-fluid">
             <ng-template pTemplate="content" [formGroup]="form">
                 <div p-dialog-content>
@@ -79,27 +78,30 @@
                             <input formControlName="username" type="text" pInputText placeholder="Username">
                         </div>
                     </div>
-                    <div *ngIf="form.get('username')?.invalid && isSubmitted && (form.get('username')?.touched || form.get('username')?.dirty)">
+                    <div
+                        *ngIf="form.get('username')?.invalid && isSubmitted && (form.get('username')?.touched || form.get('username')?.dirty)">
                         <p style="color: red;" *ngIf="form.get('username')?.errors['required']">Username is required</p>
                         <p style="color: red;" *ngIf="form.get('username')?.errors['minlength']">Username must long on 5
                             character
                         </p>
                     </div>
                     <br>
-                    
-
-                    <div class="city"> 
+                    <div class="city">
                         <div class="ct">
                             <h3>Province(<span style="color: red;">*</span>)</h3>
-                            <p-dropdown (onChange)="changeCity($event)" [options]="vietnamData" formControlName="city" optionLabel="city" optionValue="city" [showClear]="true"></p-dropdown>
-                            <div *ngIf="form.get('city')?.errors && isSubmitted && form.get('city')?.errors['required']">
+                            <p-dropdown (onChange)="changeCity($event)" [options]="vietnamData" formControlName="city"
+                                optionLabel="city" optionValue="city" [showClear]="true"></p-dropdown>
+                            <div
+                                *ngIf="form.get('city')?.errors && isSubmitted && form.get('city')?.errors['required']">
                                 <p style="color: red;">Choose province</p>
                             </div>
                         </div>
                         <div class="dt">
                             <h3>District(<span style="color: red;">*</span>)</h3>
-                            <p-dropdown [options]="districts" formControlName="district" [showClear]="true"></p-dropdown>
-                            <div *ngIf="form.get('district')?.errors && isSubmitted && form.get('district')?.errors['required']">
+                            <p-dropdown [options]="districts" formControlName="district" [showClear]="true">
+                            </p-dropdown>
+                            <div
+                                *ngIf="form.get('district')?.errors && isSubmitted && form.get('district')?.errors['required']">
                                 <p style="color: red;">Choose district</p>
                             </div>
                         </div>
@@ -107,16 +109,14 @@
                     <div class="s-d">
                         <div class="sex">
                             <h3>Gender</h3>
-                            <p-selectButton formControlName="sex" [options]="stateOptions"
-                                optionLabel="label" optionValue="value"></p-selectButton>
+                            <p-selectButton formControlName="sex" [options]="stateOptions" optionLabel="label"
+                                optionValue="value"></p-selectButton>
                         </div>
                         <div class="date">
                             <h3>Date of birth</h3>
                             <p-calendar formControlName="birth" [showIcon]="true" dateFormat="mm-dd-yy"></p-calendar>
-
                         </div>
                     </div>
-
                     <div class="e-t">
                         <div class="ep">
                             <h3>Email(<span style="color: red;">*</span>)</h3>
@@ -142,11 +142,10 @@
                         </div>
                         <div class="type">
                             <h3 for=""> Subject</h3>
-                            <p-selectButton formControlName="type" [options]="stateOptions1"
-                                optionLabel="label" optionValue="value"></p-selectButton>
+                            <p-selectButton formControlName="type" [options]="stateOptions1" optionLabel="label"
+                                optionValue="value"></p-selectButton>
                         </div>
                     </div>
-
                 </div>
             </ng-template>
             <ng-template pTemplate="footer">

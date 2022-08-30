@@ -47,8 +47,6 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
 
   ngOnInit(): void {
     this.getUsers();
-    
-
     this.form = this.fb.group({
       id: [''],
       username: ['', [Validators.required, Validators.minLength(5)]],
@@ -139,7 +137,7 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
       this.ngOnInit();
     }
   }
-  
+
   handleDeleteUser(id: string) {
     this.confirmationService.confirm({
       message: 'Are you sure you want to delete?',
@@ -155,6 +153,8 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
   handleSearchChange() {
     let newUsers = this.usersTemp.filter(user => user.username?.toLowerCase().includes(this.searchInput.toLowerCase()));
     this.users = newUsers;
+    console.log('âsdasdasd'+this.users)
+    
   }
 
   getAllProducts() {

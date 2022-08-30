@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import {ApiService} from '../../service/api.service';
-import {CartService} from '../../service/cart.service';
+import { Product } from 'src/app/product';
+import { CartService } from '../../service/cart.service';
+
+import { DataApiService } from 'src/app/service/data-api.service';
+import { CurrencyService } from 'src/app/service/currency.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -13,30 +17,72 @@ import {CartService} from '../../service/cart.service';
 export class ProductComponent implements OnInit {
 
   isLoading = false;
-  public productList : any ;
-  public filterCategory : any
-  searchKey:string ="";
-  
-  constructor(private apiservice : ApiService, 
-    private cartService : CartService,
-    private messageService: MessageService) { 
-    }
+  public productList: any;
+  public filterCategory: any
+  searchKey: string = "";
+  bannerData = [];
+  currency = 'USD';
+  dataSource!: any;
+  users: any;
+  p: number = 1;
+  total: number = 0;
 
-  ngOnInit(): void {
-    this.isLoading = true
-    this.apiservice.getProduct()
-    .subscribe(res=>{
-      this.productList = res;
-      this.filterCategory = res;
-      this.productList.forEach((a:any) => {
-        this.isLoading = false
-      });
-    })
+  constructor(private api: DataApiService,
+    private cartService: CartService,
+    private router: Router,
+    private currencyService: CurrencyService) {
   }
 
-  addtocart(item: any){
+  ngOnInit(): void {
+    this.isLoading = true;
+    this.getUsers();
+    this.getAllData();
+    this.getBannerData();
+    this.currencyService.getCurrency()
+      .subscribe(val => {
+        this.currency = val;
+        this.getAllData();
+        this.getBannerData();
+        this.isLoading = false;
+      })
+  }
+  getBannerData() {
+    this.api.getTrendingCurrency(this.currency)
+      .subscribe(res => {
+        this.bannerData = res;
+      })
+  }
+
+  getAllData() {
+    this.api.getCurrency(this.currency)
+      .subscribe(res => {
+        console.log(res);
+        this.dataSource = res
+        console.log('ádasdasd' + this.dataSource)
+        this.isLoading = false;
+      })
+  }
+
+  addtocart(item: any) {
     this.cartService.addtoCart(item);
     this.cartService.displayMessage('Success', 'successful manipulation');
   }
-  
+
+  gotoDetails(row: Product) {
+    console.log(row);
+    this.router.navigate(['coin-detail', row.id])
+  }
+
+  getUsers() {
+    this.api.getUsers(this.p)
+      .subscribe((response: any) => {
+        this.users = response.data;
+        this.total = response.total;
+      });
+  }
+
+  pageChangeEvent(event: number) {
+    this.p = event;
+    this.getUsers();
+  }
 }

@@ -19,16 +19,14 @@ export class CoinListComponent implements OnInit {
   ProductTemp!: Product[];
   Products!: Product[];
   searchInput: string;
-  displayedColumns: string[] = ['symbol', 'current_price', 'price_change_percentage_24h', 'market_cap'];
-
-
+  
   constructor(private api: DataApiService,
     private router: Router,
     private currencyService: CurrencyService) {
   }
 
   ngOnInit(): void {
-    this.isLoading=true;
+    this.isLoading = true;
     this.getAllData();
     this.getBannerData();
     this.currencyService.getCurrency()
@@ -36,7 +34,7 @@ export class CoinListComponent implements OnInit {
         this.currency = val;
         this.getAllData();
         this.getBannerData();
-        this.isLoading=false;
+        this.isLoading = false;
       })
   }
 
@@ -52,8 +50,8 @@ export class CoinListComponent implements OnInit {
       .subscribe(res => {
         console.log(res);
         this.dataSource = res
-    
-        this.isLoading=false;
+        console.log('ádasdasd'+this.dataSource)
+        this.isLoading = false;
       })
   }
 
@@ -69,8 +67,5 @@ export class CoinListComponent implements OnInit {
     console.log(row);
     this.router.navigate(['coin-detail', row.id])
   }
-
-
- 
 
 }

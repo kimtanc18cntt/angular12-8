@@ -53,6 +53,7 @@ th {
   width: 40%;
   float: right;
 }
+
 .sex {
   width: 30%;
   height: 20px;
@@ -64,6 +65,7 @@ th {
   height: 20px;
   float: right;
 }
+
 .e-t {
   margin-top: 230px;
 }
@@ -72,12 +74,12 @@ th {
   margin-top: 30px;
 }
 
-.ac{
+.ac {
   width: 20px;
   height: 20px;
 }
 
-.p-button-danger{
+.p-button-danger {
   width: 20px;
   height: 20px;
   margin-left: 5px;
@@ -91,8 +93,8 @@ th {
 
 @media screen and (max-width: 960px) {
   button {
-      width: 100%;
-      margin-bottom: .5rem;
+    width: 100%;
+    margin-bottom: .5rem;
   }
 }
 
@@ -104,39 +106,40 @@ th {
 
   100%,
   0% {
-      stroke: #16697A;
+    stroke: #16697A;
   }
 
   40% {
-      stroke: #489FB5;
+    stroke: #489FB5;
   }
 
   66% {
-      stroke: #82C0CC;
+    stroke: #82C0CC;
   }
 
   80%,
   90% {
-      stroke: #FFA62B;
+    stroke: #FFA62B;
   }
 }
 
 @keyframes custom-progress-spinner-dash {
   0% {
-      stroke-dasharray: 1, 200;
-      stroke-dashoffset: 0;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
   }
 
   50% {
-      stroke-dasharray: 89, 200;
-      stroke-dashoffset: -35px;
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
   }
 
   100% {
-      stroke-dasharray: 89, 200;
-      stroke-dashoffset: -124px;
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
   }
 }
+
 .box {
   background-color: var(--surface-e);
   text-align: center;

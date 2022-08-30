@@ -29,7 +29,6 @@ export class CoinDetailComponent implements OnInit {
         pointBorderColor: '#009688',
         pointHoverBackgroundColor: '#009688',
         pointHoverBorderColor: '#009688',
-
       }
     ],
     labels: []
@@ -63,13 +62,13 @@ export class CoinDetailComponent implements OnInit {
     this.getcontent();
   }
 
-  getcontent(){
+  getcontent() {
     this.currencyService.getCurrency()
-    .subscribe(val => {
-      this.currency = val;
-      this.getGraphData(this.days);
-      this.getCoinData();
-    })
+      .subscribe(val => {
+        this.currency = val;
+        this.getGraphData(this.days);
+        this.getCoinData();
+      })
   }
 
   getCoinData() {

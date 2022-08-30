@@ -48,6 +48,7 @@ import { CoinDetailComponent } from './component/coin-detail/coin-detail.compone
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DialogModule } from 'primeng/dialog';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -100,7 +101,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ProgressSpinnerModule,
     DialogModule,
     Ng2SearchPipeModule,
-
+    NgxPaginationModule
   ],
   providers: [
     MessageService,

@@ -11,13 +11,13 @@ import { CurrencyService } from 'src/app/service/currency.service';
 })
 
 export class HeaderComponent implements OnInit {
-  
+
   selectedCurrency: string = "INR";
   bannerData = [];
   currency = 'USD';
   activeItem2: MenuItem;
   public totalItem: number = 0;
-  
+
   constructor(
     private cartService: CartService,
     private currencyService: CurrencyService,

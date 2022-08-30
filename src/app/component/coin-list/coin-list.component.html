@@ -4,83 +4,88 @@
     </div>
 </ng-container>
 <ng-template #notLoading>
-<div class="banner">
-    <div class="conrainer">
-        <div class="header">
-            <h2>Crypto Checker YT</h2>
-            <h6>Check all the crypto currency lastedt updates</h6>
-        </div>
-        <div class="sub-header">
-            <marquee behavior="scroll" loop="infinite" direction="left">
-                <div class="row">
-                    <ng-container *ngFor="let row of bannerData">
-                        <div class="col-1">
-                            <div class="cardd">
-                                <img [src]="row.image" width="100" class="img-fluid" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{row.symbol | uppercase}} <span
-                                            class="text-danger">{{row.market_cap_change_percentage_24h}}%</span></h5>
-                                    <p class="card-text">{{row.current_price | currency: currency}}</p>
+    <div class="banner">
+        <div class="conrainer">
+            <div class="header">
+                <h2>Crypto Checker YT</h2>
+                <h6>Check all the crypto currency lastedt updates</h6>
+            </div>
+            <div class="sub-header">
+                <marquee behavior="scroll" loop="infinite" direction="left">
+                    <div class="row">
+                        <ng-container *ngFor="let row of bannerData">
+                            <div class="col-1">
+                                <div class="cardd">
+                                    <img [src]="row.image" width="100" class="img-fluid" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{row.symbol | uppercase}} <span
+                                                class="text-danger">{{row.market_cap_change_percentage_24h}}%</span>
+                                        </h5>
+                                        <p class="card-text">{{row.current_price | currency: currency}}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </ng-container>
+                        </ng-container>
 
-                </div>
-            </marquee>
+                    </div>
+                </marquee>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="card">
-        <p-table #dt [value]="dataSource" [rows]="5" [paginator]="true"
-            [globalFilterFields]="['name','country.name','representative.name','status']" responsiveLayout="scroll"
-            [rowHover]="true" dataKey="id"
-            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-            [showCurrentPageReport]="true">
-            <ng-template pTemplate="caption">
-                <div class="flex align-items-center justify-content-between">
-                    <h3 class="m-0"> coin market</h3>  
-                </div>
-            </ng-template>
-            <ng-template pTemplate="header">
-                <tr>
-                    <th style="width: 3rem">
-                        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                    </th>
-                    <th>Coin</th>
-                    <th>Price</th>
-                    <th>24h change</th>
-                    <th>Matket cap</th>
-                    <th></th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-product>
-                <tr>
-                    <td>
-                        <p-tableCheckbox [value]="product"></p-tableCheckbox>
-                    </td>
-                    <td>
-                        <img [src]="product.image" width="50" alt="" [alt]="product.name" class="shadow-4">
-                        {{product.name}}
-                    </td>
-                    <td>{{product.current_price | currency:currency}}</td>
-                    <td>{{product.price_change_percentage_24h}}%</td>
-                    <td>{{product.market_cap| currency: currency}}</td>
-                    <td>
-                        <button pButton pRipple label="Details" icon="pi pi-plus" (click)="gotoDetails(product)"
-                            class="p-button-success mr-2"></button>
-                    </td>
-                </tr>
-            </ng-template>
-            <tr></tr>
-            <ng-template pTemplate="summary">
-                <div class="flex align-items-center justify-content-between">
-                    In total there are {{dataSource ? dataSource.length : 0 }} products.
-                </div>
-            </ng-template>
-        </p-table>
+    <div class="container">
+        <div class="card">
+            <p-table #dt [value]="dataSource" [rows]="5" [paginator]="true"
+                [globalFilterFields]="['name','country.name','representative.name','status']" responsiveLayout="scroll"
+                [rowHover]="true" dataKey="id"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [showCurrentPageReport]="true"
+                >
+                <ng-template pTemplate="caption">
+                    <div class="flex align-items-center justify-content-between">
+                        <h3 class="m-0"> coin market</h3>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th>Coin</th>
+                        <th>Price</th>
+                        <th>24h change</th>
+                        <th>Matket cap</th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                        </td>
+                        <td >
+                            <img [src]="product.image" width="50" alt="" [alt]="product.name" class="shadow-4">
+                            {{product.name }}
+                        </td>
+                        <td>{{product.current_price | currency:currency}}</td>
+                        <td>{{product.price_change_percentage_24h}}%</td>
+                        <td>{{product.market_cap| currency: currency}}</td>
+                        <td>
+                            <button pButton pRipple label="Details" icon="pi pi-plus" (click)="gotoDetails(product)"
+                                class="p-button-success mr-2"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <tr></tr>
+                <ng-template pTemplate="summary">
+                    <div class="flex align-items-center justify-content-between">
+                        In total there are {{dataSource ? dataSource.length : 0 }} products.
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
     </div>
-</div>
 </ng-template>
