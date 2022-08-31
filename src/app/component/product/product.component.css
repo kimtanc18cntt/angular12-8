@@ -34,6 +34,11 @@ button {
     margin-right: .5rem;
 }
 
+.flex{
+    margin-left: 200px;
+    margin-top: 70px;
+}
+
 .load {
     display: block;
     margin-top: 500px;

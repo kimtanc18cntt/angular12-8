@@ -5,9 +5,17 @@
 </ng-container>
 <ng-template #notLoading>
 
+ 
+        <div class="flex align-items-center justify-content-between">
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" placeholder="Search..." [(ngModel)]="searchInput">
+            </span>
+        </div>
+    
     <div class="container">
         <div class="row">
-            <ng-container *ngFor="let product of dataSource| paginate: { itemsPerPage: 6, currentPage: p, totalItems: total }">
+            <ng-container *ngFor="let product of dataSource| paginate: { itemsPerPage: 6, currentPage: p, totalItems: total } | filter:searchInput">
                 <div class="card col-md-3">
                     <img  [src]="product.image" style="text-align: center;" width="50" alt="" [alt]="product.name" class="shadow-4">
                     

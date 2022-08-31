@@ -51,9 +51,6 @@
                 </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
-                        <th style="width: 3rem">
-                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                        </th>
                         <th>Coin</th>
                         <th>Price</th>
                         <th>24h change</th>
@@ -63,9 +60,6 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-product>
                     <tr>
-                        <td>
-                            <p-tableCheckbox [value]="product"></p-tableCheckbox>
-                        </td>
                         <td >
                             <img [src]="product.image" width="50" alt="" [alt]="product.name" class="shadow-4">
                             {{product.name }}

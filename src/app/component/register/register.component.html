@@ -98,7 +98,7 @@
                         </div>
                         <div class="dt">
                             <h3>District(<span style="color: red;">*</span>)</h3>
-                            <p-dropdown [options]="districts" formControlName="district" [showClear]="true">
+                            <p-dropdown [options]="districts" formControlName="district"  [showClear]="true">
                             </p-dropdown>
                             <div
                                 *ngIf="form.get('district')?.errors && isSubmitted && form.get('district')?.errors['required']">
@@ -109,12 +109,12 @@
                     <div class="s-d">
                         <div class="sex">
                             <h3>Gender</h3>
-                            <p-selectButton formControlName="sex" [options]="stateOptions" optionLabel="label"
+                            <p-selectButton formControlName="sex" [(ngModel)]="value1" [options]="stateOptions" optionLabel="label"
                                 optionValue="value"></p-selectButton>
                         </div>
                         <div class="date">
                             <h3>Date of birth</h3>
-                            <p-calendar formControlName="birth" [showIcon]="true" dateFormat="mm-dd-yy"></p-calendar>
+                            <p-calendar formControlName="birth" [showIcon]="true" dateFormat="dd-mm-yy" ngDefaultControl [(ngModel)]="valueDate"></p-calendar>
                         </div>
                     </div>
                     <div class="e-t">
@@ -142,14 +142,14 @@
                         </div>
                         <div class="type">
                             <h3 for=""> Subject</h3>
-                            <p-selectButton formControlName="type" [options]="stateOptions1" optionLabel="label"
+                            <p-selectButton formControlName="type" [(ngModel)]="value3" [options]="stateOptions1" optionLabel="label"
                                 optionValue="value"></p-selectButton>
                         </div>
                     </div>
                 </div>
             </ng-template>
             <ng-template pTemplate="footer">
-                <button pButton pRipple class="p-button-success mr-2" class="p-button-secondary"
+                <button pButton pRipple class="p-button-success mr-2" class="p-button-secondary" 
                     (click)="hideDialog()">Close</button>
                 <button pButton pRipple color="primary" style="margin-left: 8px;" class="p-button"
                     (click)="saveUser(form)">Save</button>

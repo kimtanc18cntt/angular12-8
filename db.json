@@ -1,104 +1,70 @@
 {
   "register": [
-    
     {
-      "id": 67,
-      "username": "sadasdasd",
-      "city": "Quảnh Nam",
-      "district": "Thành phố Hội An",
-      "sex": "Male",
-      "birth": "2022-08-29T02:33:23.959Z",
-      "type": "Individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0915152616"
-    },
-    {
-      "id": 68,
-      "username": "asdasdasdasds",
+      "id": 1,
+      "username": "Kimtan",
       "city": "Đà Nẵng",
       "district": "Quận Cẩm Lệ",
       "sex": "Female",
-      "birth": "2022-08-29T02:34:21.827Z",
-      "type": "Individual",
+      "birth": "2022-07-31T17:00:00.000Z",
+      "type": "Company",
       "email": "lktan@tma.com.vn",
       "phone": "0915152616"
     },
     {
-      "id": 69,
-      "username": "dasdasdas",
-      "city": "Quảnh Nam",
-      "district": "Thành phố Hội An",
-      "sex": "Female",
-      "birth": "2022-08-29T02:43:15.385Z",
-      "type": "Individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0915152616"
-    },
-    {
-      "id": 70,
-      "username": "ádasdasdas",
-      "city": "Quảnh Nam",
-      "district": "Thành phố Hội An",
+      "id": 2,
+      "username": "Thiên Tường",
+      "city": "Đà Nẵng",
+      "district": "Quận Cẩm Lệ",
       "sex": "Male",
-      "birth": "2022-08-29T02:45:03.174Z",
-      "type": "Individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0915152132"
-    },
-    {
-      "id": 71,
-      "username": "dsadasdasd",
-      "city": "Quảnh Nam",
-      "district": "Thành phố Hội An",
-      "sex": "Female",
-      "birth": "2022-08-29T02:45:35.283Z",
+      "birth": "2022-08-31T06:53:44.909Z",
       "type": "Individual",
       "email": "lktan@tma.com.vn",
       "phone": "0915152616"
     },
     {
-      "id": 72,
-      "username": "ádasdas",
-      "city": "Quảnh Nam",
-      "district": "Thành phố Hội An",
+      "id": 3,
+      "username": "scdzxcxz",
+      "city": "Quảng Nam",
+      "district": "Huyện Bắc Trà My",
       "sex": "Male",
-      "birth": "2022-08-29T02:46:38.787Z",
+      "birth": "2022-08-31T07:17:36.143Z",
       "type": "Individual",
       "email": "lktan@tma.com.vn",
-      "phone": "0915152616"
+      "phone": "0912321132"
     },
     {
-      "id": 73,
-      "username": "ádasdas",
-      "city": "Quảnh Nam",
-      "district": "Thành phố Hội An",
+      "id": 4,
+      "username": "Kim Tân",
+      "city": "Đà Nẵng",
+      "district": "Quận Cẩm Lệ",
       "sex": "Male",
-      "birth": "2022-08-29T02:47:37.095Z",
+      "birth": "2022-08-31T07:19:53.660Z",
       "type": "Individual",
       "email": "lktan@tma.com.vn",
-      "phone": "0915152616"
+      "phone": "0912321132"
     },
     {
-      "id": 74,
-      "username": "sdasdas",
-      "city": "Quảnh Nam",
-      "district": "Thành phố Hội An",
-      "sex": "Female",
-      "birth": "2022-08-29T02:50:32.642Z",
+      "id": 5,
+      "username": "sdasdasdas",
+      "city": "Bình Định",
+      "district": "Thành phố Tuy Hòa",
+      "sex": "Male",
+      "birth": "2022-08-31T07:25:42.714Z",
       "type": "Individual",
       "email": "lktan@tma.com.vn",
-      "phone": "0915152616"
+      "phone": "0915212313"
     },
     {
-      "id": 75,
-      "username": "erterterter",
-      "city": "Quảnh Nam",
-      "district": "Thành phố Hội An",
+      "id": 6,
+      "username": "Thiên Thanh",
+      "city": "Quảng Nam",
+      "district": "Huyện Đại Lộc",
       "sex": "Female",
-      "birth": "2022-08-29T02:51:11.520Z",
+      "birth": "2022-08-08T17:00:00.000Z",
       "type": "Individual",
       "email": "lktan@tma.com.vn",
-      "phone": "0915152616"
+      "phone": "0912321132"
     }
   ],
   "ima": [

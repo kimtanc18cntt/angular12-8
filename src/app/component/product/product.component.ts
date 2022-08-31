@@ -26,9 +26,9 @@ export class ProductComponent implements OnInit {
   users: any;
   p: number = 1;
   total: number = 0;
+    searchInput: string;
 
   constructor(private api: DataApiService,
-    private cartService: CartService,
     private router: Router,
     private currencyService: CurrencyService) {
   }
@@ -61,11 +61,6 @@ export class ProductComponent implements OnInit {
         console.log('ádasdasd' + this.dataSource)
         this.isLoading = false;
       })
-  }
-
-  addtocart(item: any) {
-    this.cartService.addtoCart(item);
-    this.cartService.displayMessage('Success', 'successful manipulation');
   }
 
   gotoDetails(row: Product) {
