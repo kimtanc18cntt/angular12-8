@@ -5,12 +5,13 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataApiService {
-  
+
   private url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&sparkline=false';
   constructor( private http : HttpClient) { }
- 
+
   getCurrency(currency:string){
     return this.http.get<any>(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&sparkline=false`);
+
   }
 
   getTrendingCurrency(currency:string){
@@ -24,6 +25,7 @@ export class DataApiService {
   getCurrencyById(coinId:string){
     return this.http.get<any>(`https://api.coingecko.com/api/v3/coins/${coinId}`)
   }
+
   getUsers(page: number){
     return this.http.get(this.url + '?page=' + page);
   }

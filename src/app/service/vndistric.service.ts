@@ -9,9 +9,10 @@ export class VndistricService {
   getdistric(){
     let vietnamData:any[];
      vietnamData=[
-      {city:'Choose province', district:['District']},
-      {city:'Đà Nẵng', 
+      {city:'Choose province', district:'District'},
+      {city:'Đà Nẵng',
       district:[
+        "District",
         "Quận Cẩm Lệ",
         "Quận Hải Châu",
         "Quận Liên Chiểu",
@@ -21,8 +22,9 @@ export class VndistricService {
         "Huyện Hòa Vang",
         "Huyện Hoàng Sa"
       ]},
-      {city:'Quảng Nam', 
+      {city:'Quảng Nam',
       district:[
+        "District",
         "Thành phố Hội An",
         "Thành phố Tam Kỳ",
         "Huyện Bắc Trà My",
@@ -42,8 +44,9 @@ export class VndistricService {
         "Huyện Thăng Bình",
         "Huyện Tiên Phước"
       ]},
-      {city:'Quảng Ngãi', 
+      {city:'Quảng Ngãi',
       district:[
+        "District",
         "Thành phố Quảng Ngãi",
         "Huyện Ba Tơ",
         "Huyện Bình Sơn",
@@ -59,8 +62,9 @@ export class VndistricService {
         "Huyện Trà Bồng",
         "Huyện Tư Nghĩa"
       ]},
-      {city:'Bình Định', 
+      {city:'Bình Định',
       district:[
+        "District",
         "Thành phố Quy Nhơn",
         "Huyện An Lão",
         "Huyện An Nhơn",
@@ -73,8 +77,9 @@ export class VndistricService {
         "Huyện Vân Canh",
         "Huyện Vĩnh Thạnh"
       ]},
-      {city:'Phú Yên', 
+      {city:'Phú Yên',
       district:[
+        "District",
         "Thành phố Tuy Hòa",
         "Thị xã Sông Cầu",
         "Huyện Đông Hòa",

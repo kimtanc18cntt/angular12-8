@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './component/header/header.component';
 import { ProductComponent } from './component/product/product.component';
-import { CartComponent } from './component/cart/cart.component';
 import { AccordionModule } from 'primeng/accordion';
 import { MessageService } from 'primeng/api';
 import { AutoCompleteModule } from 'primeng/autocomplete'
@@ -49,13 +48,14 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { DialogModule } from 'primeng/dialog';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {DataViewModule} from 'primeng/dataview';
+import {RippleModule} from 'primeng/ripple';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ProductComponent,
-    CartComponent,
     ContentComponent,
     PagenotcomponentComponent,
     RegisterComponent,
@@ -101,7 +101,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ProgressSpinnerModule,
     DialogModule,
     Ng2SearchPipeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    DataViewModule,
+    RippleModule
   ],
   providers: [
     MessageService,

@@ -3,8 +3,8 @@
     {
       "id": 1,
       "username": "Kimtan",
-      "city": "Đà Nẵng",
-      "district": "Quận Cẩm Lệ",
+      "city": "Quảng Nam",
+      "district": "Thành phố Hội An",
       "sex": "Female",
       "birth": "2022-07-31T17:00:00.000Z",
       "type": "Company",
@@ -23,17 +23,6 @@
       "phone": "0915152616"
     },
     {
-      "id": 3,
-      "username": "scdzxcxz",
-      "city": "Quảng Nam",
-      "district": "Huyện Bắc Trà My",
-      "sex": "Male",
-      "birth": "2022-08-31T07:17:36.143Z",
-      "type": "Individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0912321132"
-    },
-    {
       "id": 4,
       "username": "Kim Tân",
       "city": "Đà Nẵng",
@@ -45,17 +34,6 @@
       "phone": "0912321132"
     },
     {
-      "id": 5,
-      "username": "sdasdasdas",
-      "city": "Bình Định",
-      "district": "Thành phố Tuy Hòa",
-      "sex": "Male",
-      "birth": "2022-08-31T07:25:42.714Z",
-      "type": "Individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0915212313"
-    },
-    {
       "id": 6,
       "username": "Thiên Thanh",
       "city": "Quảng Nam",
@@ -65,6 +43,28 @@
       "type": "Individual",
       "email": "lktan@tma.com.vn",
       "phone": "0912321132"
+    },
+    {
+      "id": 18,
+      "username": "Kim TÂN",
+      "city": "Phú Yên",
+      "district": "Thị xã Sông Cầu",
+      "sex": "Female",
+      "birth": "2022-09-15T06:55:49.826Z",
+      "type": "Individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152616"
+    },
+    {
+      "id": 19,
+      "username": "aaaaaaaaaaaaaaaaaaa",
+      "city": "Quảng Nam",
+      "district": "Thành phố Hội An",
+      "sex": "Female",
+      "birth": "2022-09-16T09:39:37.507Z",
+      "type": "Individual",
+      "email": "lktan@tma.com.vn",
+      "phone": "0915152616"
     }
   ],
   "ima": [

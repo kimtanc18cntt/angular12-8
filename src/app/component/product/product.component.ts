@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
+import { MessageService, PrimeNGConfig, SelectItem } from 'primeng/api';
 import { Product } from 'src/app/product';
-import { CartService } from '../../service/cart.service';
 
 import { DataApiService } from 'src/app/service/data-api.service';
 import { CurrencyService } from 'src/app/service/currency.service';
@@ -10,74 +9,52 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css'],
+  styleUrls: ['./product.component.scss'],
   providers: [MessageService]
 })
 
 export class ProductComponent implements OnInit {
-
-  isLoading = false;
-  public productList: any;
-  public filterCategory: any
-  searchKey: string = "";
+  products: Product[];
   bannerData = [];
-  currency = 'USD';
-  dataSource!: any;
-  users: any;
-  p: number = 1;
-  total: number = 0;
+    sortOptions: SelectItem[];
+    currency = 'USD';
+    dataSource!: any;
+    sortOrder: number;
+    sortField: string;
     searchInput: string;
+    isLoading = false;
 
-  constructor(private api: DataApiService,
-    private router: Router,
-    private currencyService: CurrencyService) {
-  }
+    constructor(private productService: DataApiService,
+      private router: Router, private primengConfig: PrimeNGConfig) { }
 
-  ngOnInit(): void {
-    this.isLoading = true;
-    this.getUsers();
-    this.getAllData();
-    this.getBannerData();
-    this.currencyService.getCurrency()
-      .subscribe(val => {
-        this.currency = val;
-        this.getAllData();
-        this.getBannerData();
-        this.isLoading = false;
-      })
-  }
-  getBannerData() {
-    this.api.getTrendingCurrency(this.currency)
+    ngOnInit() {
+
+      this.productService.getCurrency(this.currency)
+
       .subscribe(res => {
-        this.bannerData = res;
-      })
-  }
-
-  getAllData() {
-    this.api.getCurrency(this.currency)
-      .subscribe(res => {
+        this.isLoading = true;
         console.log(res);
-        this.dataSource = res
-        console.log('ádasdasd' + this.dataSource)
+        setTimeout(() => {
+          this.products  = res
+          console.log('ádasdasd'+this.dataSource)
         this.isLoading = false;
+        }, 3000);
+
       })
-  }
+      this.isLoading = false;
+        this.primengConfig.ripple = true;
+        console.log(this.dataSource);
+    }
 
-  gotoDetails(row: Product) {
-    console.log(row);
-    this.router.navigate(['coin-detail', row.id])
-  }
+    gotoDetails(row: Product) {
+      console.log(row);
+      this.router.navigate(['coin-detail', row.id])
+    }
 
-  getUsers() {
-    this.api.getUsers(this.p)
-      .subscribe((response: any) => {
-        this.users = response.data;
-        this.total = response.total;
-      });
-  }
+    handleSearchChange() {
+      let newUsers = this.products.filter(products => products.name?.toLowerCase().includes(this.searchInput.toLowerCase()));
+      this.products = newUsers;
+      console.log('âsdasdasd'+this.products)
+    }
 
-  pageChangeEvent(event: number) {
-    this.p = event;
-    this.getUsers();
-  }
 }

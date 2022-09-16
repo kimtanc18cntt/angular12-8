@@ -12,11 +12,11 @@ import { DataApiService } from 'src/app/service/data-api.service';
   styleUrls: ['./coin-detail.component.css']
 })
 export class CoinDetailComponent implements OnInit {
-
   coinData: any;
   coinId !: string;
   days: number = 30;
   currency: string = "USD";
+  isLoading = false;
 
   public lineChartData: ChartConfiguration['data'] = {
     datasets: [
@@ -65,9 +65,13 @@ export class CoinDetailComponent implements OnInit {
   getcontent() {
     this.currencyService.getCurrency()
       .subscribe(val => {
-        this.currency = val;
-        this.getGraphData(this.days);
-        this.getCoinData();
+        this.isLoading = true;
+        setTimeout(() => {
+          this.currency = val;
+          this.getGraphData(this.days);
+          this.getCoinData();
+          this.isLoading = false;
+        }, 2000);
       })
   }
 

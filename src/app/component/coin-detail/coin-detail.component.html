@@ -1,3 +1,9 @@
+<ng-container *ngIf="isLoading; else notLoading">
+  <div class="load">
+      <p-progressSpinner></p-progressSpinner>
+  </div>
+</ng-container>
+<ng-template #notLoading>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3 details">
@@ -26,3 +32,4 @@
         </div>
     </div>
 </div>
+</ng-template>

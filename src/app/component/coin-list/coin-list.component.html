@@ -46,6 +46,8 @@
                         <h3 class="m-0"> coin market</h3>
                         <span class="p-input-icon-left">
                             <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="Search..." [(ngModel)]="searchInput"
+                            (input)="handleSearchChange()">
                         </span>
                     </div>
                 </ng-template>

@@ -7,7 +7,7 @@ import { DataApiService } from 'src/app/service/data-api.service';
 import { CoinDetailComponent } from './coin-detail.component';
 import { of } from 'rxjs';
 
-fdescribe('CoinDetailComponent', () => {
+describe('CoinDetailComponent', () => {
   let component: CoinDetailComponent;
   let fixture: ComponentFixture<CoinDetailComponent>;
     let dataApiService = jasmine.createSpyObj('dataApiService',
@@ -36,7 +36,7 @@ fdescribe('CoinDetailComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
+
   it('call function getCoinData', () => {
   dataApiService.getCurrencyById.and.returnValue(of(undefined));
     component.getCoinData();

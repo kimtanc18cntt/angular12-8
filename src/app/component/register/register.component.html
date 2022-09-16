@@ -24,15 +24,15 @@
             </ng-template>
             <ng-template pTemplate="header">
                 <tr>
-                    <th>Username</th>
-                    <th>Province</th>
-                    <th>District</th>
-                    <th>Gender</th>
-                    <th>Birth day</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Subject</th>
-                    <th>Action</th>
+                  <th pSortableColumn="username">Name <p-sortIcon field="username"></p-sortIcon></th>
+                  <th pSortableColumn="city">Province <p-sortIcon field="city"></p-sortIcon></th>
+                  <th pSortableColumn="district">District <p-sortIcon field="district"></p-sortIcon></th>
+                  <th pSortableColumn="sex">Gender <p-sortIcon field="sex"></p-sortIcon></th>
+                  <th pSortableColumn="birth">Birth day <p-sortIcon field="birth"></p-sortIcon></th>
+                  <th pSortableColumn="phone">Phone <p-sortIcon field="phone"></p-sortIcon></th>
+                  <th pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon></th>
+                  <th pSortableColumn="type">Subject <p-sortIcon field="type"></p-sortIcon></th>
+                  <th>Action</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-user>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div
-                        *ngIf="form.get('username')?.invalid && isSubmitted && (form.get('username')?.touched || form.get('username')?.dirty)">
+                        *ngIf="form.get('username')?.invalid  && (form.get('username')?.touched || form.get('username')?.dirty)">
                         <p style="color: red;" *ngIf="form.get('username')?.errors['required']">Username is required</p>
                         <p style="color: red;" *ngIf="form.get('username')?.errors['minlength']">Username must long on 5
                             character
@@ -90,7 +90,7 @@
                         <div class="ct">
                             <h3>Province(<span style="color: red;">*</span>)</h3>
                             <p-dropdown (onChange)="changeCity($event)" [options]="vietnamData" formControlName="city"
-                                optionLabel="city" optionValue="city" [showClear]="true"></p-dropdown>
+                                optionLabel="city" optionValue="city" [showClear]="false" [showClear]="true"></p-dropdown>
                             <div
                                 *ngIf="form.get('city')?.errors && isSubmitted && form.get('city')?.errors['required']">
                                 <p style="color: red;">Choose province</p>
@@ -109,7 +109,7 @@
                     <div class="s-d">
                         <div class="sex">
                             <h3>Gender</h3>
-                            <p-selectButton formControlName="sex" [(ngModel)]="value1" [options]="stateOptions" optionLabel="label"
+                            <p-selectButton formControlName="sex"  [options]="stateOptions" optionLabel="label"
                                 optionValue="value"></p-selectButton>
                         </div>
                         <div class="date">
@@ -122,7 +122,7 @@
                             <h3>Email(<span style="color: red;">*</span>)</h3>
                             <input formControlName="email" type="text" style="width:70%" pInputText placeholder="Email">
                             <br>
-                            <div *ngIf="form.get('email')?.errors && isSubmitted && form.get('email')?.touched">
+                            <div *ngIf="form.get('email')?.errors && form.get('email')?.touched">
                                 <p style="color: red;" *ngIf="form.get('email')?.errors['required']">Email is required
                                 </p>
                                 <p style="color: red;" *ngIf="form.get('email')?.errors['pattern']">Wrong format</p>
@@ -132,7 +132,7 @@
                                 <input formControlName="phone" pInputText style="width:70%" type="text"
                                     placeholder="Phone" [maxLength]="10" [minlength]="10">
 
-                                <div *ngIf="form.get('phone')?.errors && isSubmitted && form.get('phone')?.touched">
+                                <div *ngIf="form.get('phone')?.errors  && form.get('phone')?.touched">
                                     <p style="color: red;" *ngIf="form.get('phone')?.errors['required']">Phone is
                                         required
                                     </p>
@@ -142,16 +142,20 @@
                         </div>
                         <div class="type">
                             <h3 for=""> Subject</h3>
-                            <p-selectButton formControlName="type" [(ngModel)]="value3" [options]="stateOptions1" optionLabel="label"
+                            <p-selectButton formControlName="type"  [options]="stateOptions1" optionLabel="label"
                                 optionValue="value"></p-selectButton>
                         </div>
                     </div>
                 </div>
             </ng-template>
+            <!-- {{form.invalid}} -->
             <ng-template pTemplate="footer">
-                <button pButton pRipple class="p-button-success mr-2" class="p-button-secondary" 
+              <button pButton pRipple class="p-button-success mr-2" class="p-button-secondary"  [ngStyle]="{backgroundColor:'var(--green-300)'}"
+                    (click)="cleardialog()">Clear</button>
+                <button pButton pRipple class="p-button-success mr-2" class="p-button-secondary"
                     (click)="hideDialog()">Close</button>
-                <button pButton pRipple color="primary" style="margin-left: 8px;" class="p-button"
+                <button pButton pRipple color="primary" style="margin-left: 8px;" class="p-button" [disabled]= "form.invalid"
+
                     (click)="saveUser(form)">Save</button>
             </ng-template>
         </p-dialog>

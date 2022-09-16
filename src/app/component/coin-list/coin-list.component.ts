@@ -19,22 +19,24 @@ export class CoinListComponent implements OnInit {
   ProductTemp!: Product[];
   Products!: Product[];
   searchInput: string;
-  
+
   constructor(private api: DataApiService,
     private router: Router,
     private currencyService: CurrencyService) {
   }
 
   ngOnInit(): void {
-    this.isLoading = true;
     this.getAllData();
     this.getBannerData();
     this.currencyService.getCurrency()
       .subscribe(val => {
-        this.currency = val;
-        this.getAllData();
-        this.getBannerData();
-        this.isLoading = false;
+        this.isLoading = true;
+        setTimeout(() => {
+          this.currency = val;
+          this.getAllData();
+          this.getBannerData();
+          this.isLoading = false;
+        }, 8000);
       })
   }
 
@@ -47,11 +49,15 @@ export class CoinListComponent implements OnInit {
 
   getAllData() {
     this.api.getCurrency(this.currency)
-      .subscribe(res => {
-        console.log(res);
-        this.dataSource = res
-        console.log('ádasdasd'+this.dataSource)
-        this.isLoading = false;
+      .subscribe(res =>
+        {
+          this.isLoading = true;
+          setTimeout(() => {
+            console.log(res);
+            this.dataSource = res
+            console.log('ádasdasd'+this.dataSource)
+            this.isLoading = false;
+          }, 3000);
       })
   }
 
@@ -68,4 +74,9 @@ export class CoinListComponent implements OnInit {
     this.router.navigate(['coin-detail', row.id])
   }
 
+  handleSearchChange() {
+    let newUsers = this.dataSource.filter(Products => Products.name?.toLowerCase().includes(this.searchInput.toLowerCase()));
+    this.dataSource = newUsers;
+    console.log('âsdasdasd'+this.dataSource)
+  }
 }

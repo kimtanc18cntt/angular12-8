@@ -1,7 +1,7 @@
 import { AfterViewChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { from, mergeMap, Observer } from 'rxjs';
+import { Observer } from 'rxjs';
 
 import { DataServer } from '../../data';
 import { ApiregisterService } from '../../service/apiregister.service';
@@ -49,23 +49,26 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit(): void {
-    
+
     this.form = this.fb.group({
       id: [''],
       username: ['', [Validators.required, Validators.minLength(5)]],
       city: ['',  Validators.required],
-      district: ['', Validators.required],
-      sex: ['Male', Validators.required],
+      district: ['District', Validators.required],
+      sex: ['Female'],
       birth: [new Date(), Validators.required],
-      type: ['Individual', Validators.required],
+      type: ['Individual'],
       email: ['', [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]],
       phone: ['', [Validators.required, Validators.pattern('^(0|84)(2(0[3-9]|1[0-6|8|9]|2[0-2|5-9]|3[2-9]|4[0-9]|5[1|2|4-9]|6[0-3|9]|7[0-7]|8[0-9]|9[0-4|6|7|9])|3[2-9]|5[5|6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])([0-9]{7})$')]]
     });
+
+    console.log(this.form)
     this.getUsers();
     this.observer = {
       next: (data: DataServer) => {
         this.userDialog = false;
         this.searchInput = '';
+        // this.isLoading = false;
         this.getUsers();
       },
       error: ({ error }: any) => {
@@ -77,7 +80,6 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
     this.stateOptions1 = [{ label: 'Individual', value: 'Individual' }, { label: 'Company', value: 'Company' }];
     this.vietnamData = this.vn.getdistric();
     console.log(this.vietnamData);
-
   }
 
   ngAfterViewChecked(): void {
@@ -86,8 +88,7 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
 
   openNew() {
     this.valueDate = new Date();
-    this.value1 = "Male";
-    this. value3 = "Individual";
+    this.ngOnInit();
     this.userDialog = true;
   }
 
@@ -107,15 +108,14 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
 
   getUsers() {
     console.log('getUsers');
-    setTimeout(() => {
-
-    }, 50000);
     this.isLoading = true;
-
     this.userService.getProduct().subscribe({
       next: (data) => {
-        this.users = this.usersTemp = data;
+        setTimeout(() => {
+          this.users = this.usersTemp = data;
         this.isLoading = false;
+        }, 2000);
+
       },
       error: (error) => {
         console.log('error' + error.message);
@@ -128,17 +128,18 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
   saveUser(form: FormGroup) {
     this.isSubmitted = true;
     form.markAllAsTouched();
-    // if (form.invalid) {  return;  }
+     if (form.invalid) {  return;  }
     // // EDIT
     if (form.value.id) {
+      this.isLoading = true;
       this.userService.putProduct(this.form.value, this.form.value.id).subscribe(this.observer);
       this.form.reset();
       this.userService.displayMessage('Successfully', 'User update');
       this.isSubmitted = false;
-     
     }
     // CREATE
     else {
+      this.isLoading = true;
       this.userService.postProduct(this.form.value).subscribe(this.observer);
       this.userService.displayMessage('Successfully', 'User created');
       this.isSubmitted = false;
@@ -162,7 +163,7 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
     let newUsers = this.usersTemp.filter(user => user.username?.toLowerCase().includes(this.searchInput.toLowerCase()));
     this.users = newUsers;
     console.log('âsdasdasd'+this.users)
-    
+
   }
 
   getAllProducts() {
@@ -179,4 +180,10 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
     this.districts = this.vietnamData.find(data => data.city === city)?.district || [];
     console.log(this.districts);
   }
+
+  cleardialog(){
+    this.form.reset();
+    this.ngOnInit();
+  }
 }
+

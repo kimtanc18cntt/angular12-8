@@ -30,8 +30,6 @@ export class ContentComponent implements OnInit {
         icon: 'pi pi-fw pi-dollar',
         url: '/product'
       }
-
     ];
   }
-
 }

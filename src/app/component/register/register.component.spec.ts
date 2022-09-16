@@ -9,7 +9,7 @@ import { User } from 'src/app/user';
 import { ApiregisterService } from 'src/app/service/apiregister.service';
 import { ConfirmDialog } from 'primeng/confirmdialog';
 
-describe('RegisterComponent', () => {
+fdescribe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
   let userService = jasmine.createSpyObj('userService',
@@ -84,14 +84,14 @@ describe('RegisterComponent', () => {
     component.saveUser(form);
     expect(userService.displayMessage).toHaveBeenCalled();
   });
-   
+
   it('call function hideDialog', () => {
     component.userDialog = true;
     component.hideDialog();
     expect(component.userDialog).toBeFalse();
   });
 
- 
+
   it('call function getAllProducts', () => {
     userService.getProduct.and.returnValue(of([
       {
@@ -108,7 +108,7 @@ describe('RegisterComponent', () => {
   });
 
 
- 
+
   it('call function handleSearchChange', () => {
     component.usersTemp=[
       {

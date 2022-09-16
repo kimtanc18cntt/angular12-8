@@ -2,15 +2,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule} from '@angular/common/http';
 import {ApiService} from '../../service/api.service';
 import {CartService} from '../../service/cart.service';
-import { BehaviorSubject } from 'rxjs';
-
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ConfirmationService, MessageService } from 'primeng/api';
-
-
+import {  MessageService } from 'primeng/api';
 import { ProductComponent } from './product.component';
 
-import { count, of } from 'rxjs';
+import {  of } from 'rxjs';
 
 describe('ProductComponent', () => {
   let component: ProductComponent;
@@ -19,7 +14,6 @@ describe('ProductComponent', () => {
   ['getProducts', 'setProduct', 'addtoCart', 'getTotalPrice','removeCartItem','removeAllCart','displayMessage']);
   let messageService = jasmine.createSpyObj('messageService', ['add']);
   let apiservice = jasmine.createSpyObj('apiservice', ['getProduct'])
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ProductComponent ],
@@ -48,14 +42,6 @@ describe('ProductComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-
-  it('call function addtocart', () => {
-    cartService.addtoCart.and.returnValue(of(undefined));
-    component.addtocart('1');
-    expect(cartService.displayMessage).toHaveBeenCalled();
-  });
-
   it('call function ngOnInit', () => {
     apiservice.getProduct.and.returnValue(of([]));
     component.ngOnInit();
