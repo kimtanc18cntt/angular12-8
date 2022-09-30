@@ -50,6 +50,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {DataViewModule} from 'primeng/dataview';
 import {RippleModule} from 'primeng/ripple';
+import {StepsModule} from 'primeng/steps';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import {RippleModule} from 'primeng/ripple';
     PagenotcomponentComponent,
     RegisterComponent,
     CoinListComponent,
-    CoinDetailComponent
+    CoinDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,7 +104,8 @@ import {RippleModule} from 'primeng/ripple';
     Ng2SearchPipeModule,
     NgxPaginationModule,
     DataViewModule,
-    RippleModule
+    RippleModule,
+    StepsModule
   ],
   providers: [
     MessageService,

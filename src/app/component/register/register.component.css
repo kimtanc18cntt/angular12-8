@@ -164,3 +164,6 @@ th {
 .nested-grid .p-col-4 {
   padding-bottom: 1rem;
 }
+ .deletebutton{
+  background: rgb(230, 9, 9);
+ }

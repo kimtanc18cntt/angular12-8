@@ -2,25 +2,19 @@ import { AfterViewChecked, ChangeDetectorRef, Component, OnInit } from '@angular
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Observer } from 'rxjs';
-
 import { DataServer } from '../../data';
 import { ApiregisterService } from '../../service/apiregister.service';
 import { User } from 'src/app/user';
 import { VndistricService } from 'src/app/service/vndistric.service';
 import { __values } from 'tslib';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit, AfterViewChecked {
+export class RegisterComponent implements OnInit{
   isLoading = false;
-  displayDialog = false;
-  selectedUser: User = {
-    id: '1'
-  };
   users!: User[];
   usersTemp!: User[];
   searchInput: string;
@@ -29,20 +23,17 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
   stateOptions1: any[];
   form!: FormGroup;
   observer: Observer<any>;
-  districts = ['District'];
+  districts = [];
   vietnamData: any[];
   error: string;
   isSubmitted = false;
   dataSource!: any;
   valueDate: Date;
-  value1: string ;
-  value3: string ;
 
   constructor(
     private userService: ApiregisterService,
     private fb: FormBuilder,
     private confirmationService: ConfirmationService,
-    private cd: ChangeDetectorRef,
     private messageService: MessageService,
     private vn: VndistricService,
   ) {
@@ -54,11 +45,11 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
       id: [''],
       username: ['', [Validators.required, Validators.minLength(5)]],
       city: ['',  Validators.required],
-      district: ['District', Validators.required],
-      sex: ['Female'],
+      district: ["", Validators.required],
+      sex: 'Female',
       birth: [new Date(), Validators.required],
-      type: ['Individual'],
-      email: ['', [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]],
+      type: 'Individual',
+      email: ['@gmail.com', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern('^(0|84)(2(0[3-9]|1[0-6|8|9]|2[0-2|5-9]|3[2-9]|4[0-9]|5[1|2|4-9]|6[0-3|9]|7[0-7]|8[0-9]|9[0-4|6|7|9])|3[2-9]|5[5|6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])([0-9]{7})$')]]
     });
 
@@ -68,7 +59,6 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
       next: (data: DataServer) => {
         this.userDialog = false;
         this.searchInput = '';
-        // this.isLoading = false;
         this.getUsers();
       },
       error: ({ error }: any) => {
@@ -80,10 +70,6 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
     this.stateOptions1 = [{ label: 'Individual', value: 'Individual' }, { label: 'Company', value: 'Company' }];
     this.vietnamData = this.vn.getdistric();
     console.log(this.vietnamData);
-  }
-
-  ngAfterViewChecked(): void {
-    this.cd.detectChanges();
   }
 
   openNew() {
@@ -115,7 +101,6 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
           this.users = this.usersTemp = data;
         this.isLoading = false;
         }, 2000);
-
       },
       error: (error) => {
         console.log('error' + error.message);
@@ -162,8 +147,7 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
   handleSearchChange() {
     let newUsers = this.usersTemp.filter(user => user.username?.toLowerCase().includes(this.searchInput.toLowerCase()));
     this.users = newUsers;
-    console.log('âsdasdasd'+this.users)
-
+    console.log('data seach:'+this.users)
   }
 
   getAllProducts() {
@@ -179,6 +163,7 @@ export class RegisterComponent implements OnInit, AfterViewChecked {
     }
     this.districts = this.vietnamData.find(data => data.city === city)?.district || [];
     console.log(this.districts);
+
   }
 
   cleardialog(){

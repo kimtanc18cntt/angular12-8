@@ -5,7 +5,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { CartService } from './cart.service';
 
-fdescribe('CartService', () => {
+describe('CartService', () => {
   let service: CartService;
   let messageService = jasmine.createSpyObj('messageService', ['add']);
 
@@ -15,7 +15,7 @@ fdescribe('CartService', () => {
         {
           provide: MessageService, useValue: messageService
          },
-       
+
       ]
     });
     service = TestBed.inject(CartService);

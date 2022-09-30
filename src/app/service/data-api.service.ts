@@ -26,7 +26,4 @@ export class DataApiService {
     return this.http.get<any>(`https://api.coingecko.com/api/v3/coins/${coinId}`)
   }
 
-  getUsers(page: number){
-    return this.http.get(this.url + '?page=' + page);
-  }
 }

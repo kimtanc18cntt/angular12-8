@@ -49,7 +49,7 @@ export class CartService {
     this.cartItemList = []
     this.productList.next(this.cartItemList);
   }
-  
+
   displayMessage(summary: string, detail: string, severity: string = 'success') {
     this.messageService.add({ severity, summary, detail });
   }

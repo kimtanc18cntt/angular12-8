@@ -24,11 +24,10 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('app3 app is running!');
-   
   });
 
- 
-  it(`should have as title`, () => { 
+
+  it(`should have as title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('app3 app is running!');

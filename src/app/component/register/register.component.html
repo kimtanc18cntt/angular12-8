@@ -11,7 +11,7 @@
                     (click)="openNew()"></button>
             </ng-template>
         </p-toolbar>
-        <p-table [value]="users" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
+        <p-table  [value]="users" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
             currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
             <ng-template pTemplate="caption">
                 <div class="flex align-items-center justify-content-between">
@@ -53,14 +53,6 @@
                     </td>
                 </tr>
             </ng-template>
-            <p-confirmDialog header="Delete" icon="pi pi-exclamation-triangle"></p-confirmDialog>
-            <p-dialog header="Title" [(visible)]="displayDialog">
-                Content {{selectedUser.username}}
-                <input type="text" pInputText [value]="selectedUser.username">
-            </p-dialog>
-            <div *ngIf="users">
-                <h1>Loading...</h1>
-            </div>
             <ng-template pTemplate="summary">
                 <div class="flex align-items-center justify-content-between">
                     In total there are {{users?.length}} users
@@ -84,16 +76,22 @@
                         <p style="color: red;" *ngIf="form.get('username')?.errors['minlength']">Username must long on 5
                             character
                         </p>
-                    </div>
+                      </div>
+                      <div *ngIf="form.get('username')?.valid && (form.get('username')?.touched || form.get('username')?.dirty)">
+                        <p style="color: rgb(26, 201, 41);">OK</p>
+                      </div>
                     <br>
                     <div class="city">
                         <div class="ct">
                             <h3>Province(<span style="color: red;">*</span>)</h3>
                             <p-dropdown (onChange)="changeCity($event)" [options]="vietnamData" formControlName="city"
-                                optionLabel="city" optionValue="city" [showClear]="false" [showClear]="true"></p-dropdown>
+                                optionLabel="city" optionValue="city"  [showClear]="true"></p-dropdown>
                             <div
                                 *ngIf="form.get('city')?.errors && isSubmitted && form.get('city')?.errors['required']">
                                 <p style="color: red;">Choose province</p>
+                            </div>
+                            <div *ngIf="form.get('city')?.valid && (form.get('city')?.touched || form.get('city')?.dirty)">
+                              <p style="color: rgb(26, 201, 41);">OK</p>
                             </div>
                         </div>
                         <div class="dt">
@@ -103,6 +101,9 @@
                             <div
                                 *ngIf="form.get('district')?.errors && isSubmitted && form.get('district')?.errors['required']">
                                 <p style="color: red;">Choose district</p>
+                            </div>
+                            <div *ngIf="form.get('district')?.valid && (form.get('district')?.touched || form.get('district')?.dirty)">
+                              <p style="color: rgb(26, 201, 41);">OK</p>
                             </div>
                         </div>
                     </div>
@@ -122,23 +123,31 @@
                             <h3>Email(<span style="color: red;">*</span>)</h3>
                             <input formControlName="email" type="text" style="width:70%" pInputText placeholder="Email">
                             <br>
-                            <div *ngIf="form.get('email')?.errors && form.get('email')?.touched">
+                            <div *ngIf="form.get('email')?.errors && (form.get('email')?.touched || form.get('email')?.dirty)">
                                 <p style="color: red;" *ngIf="form.get('email')?.errors['required']">Email is required
                                 </p>
-                                <p style="color: red;" *ngIf="form.get('email')?.errors['pattern']">Wrong format</p>
+                                <p style="color: red;" *ngIf="form.get('email')?.errors['email']">Wrong format</p>
+                            </div>
+                            <div *ngIf="form.get('email')?.valid && (form.get('email')?.touched || form.get('email')?.dirty)">
+                              <p style="color: rgb(26, 201, 41);">OK</p>
                             </div>
                             <div class="phone">
                                 <h3>Phone(<span style="color: red;">*</span>)</h3>
+                                <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon"><i class="pi pi-phone"></i></span>
                                 <input formControlName="phone" pInputText style="width:70%" type="text"
                                     placeholder="Phone" [maxLength]="10" [minlength]="10">
-
-                                <div *ngIf="form.get('phone')?.errors  && form.get('phone')?.touched">
+                                  </div>
+                                </div>
+                                <div *ngIf="form.get('phone')?.errors  && (form.get('phone')?.touched || form.get('phone')?.dirty)">
                                     <p style="color: red;" *ngIf="form.get('phone')?.errors['required']">Phone is
                                         required
                                     </p>
                                     <p style="color: red;" *ngIf="form.get('phone')?.errors['pattern']">Wrong format</p>
                                 </div>
-                            </div>
+                                <div *ngIf="form.get('phone')?.valid && (form.get('phone')?.touched || form.get('phone')?.dirty)">
+                                  <p style="color: rgb(26, 201, 41);">OK</p>
+                                </div>
                         </div>
                         <div class="type">
                             <h3 for=""> Subject</h3>
@@ -148,14 +157,12 @@
                     </div>
                 </div>
             </ng-template>
-            <!-- {{form.invalid}} -->
             <ng-template pTemplate="footer">
               <button pButton pRipple class="p-button-success mr-2" class="p-button-secondary"  [ngStyle]="{backgroundColor:'var(--green-300)'}"
                     (click)="cleardialog()">Clear</button>
                 <button pButton pRipple class="p-button-success mr-2" class="p-button-secondary"
                     (click)="hideDialog()">Close</button>
-                <button pButton pRipple color="primary" style="margin-left: 8px;" class="p-button" [disabled]= "form.invalid"
-
+                <button pButton pRipple color="primary" style="margin-left: 8px;" class="p-button"
                     (click)="saveUser(form)">Save</button>
             </ng-template>
         </p-dialog>

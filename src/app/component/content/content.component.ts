@@ -21,7 +21,7 @@ export class ContentComponent implements OnInit {
         url: '/home'
       },
       {
-        label: 'Menber',
+        label: 'Member',
         icon: 'pi pi-fw pi-file',
         url: '/register'
       },

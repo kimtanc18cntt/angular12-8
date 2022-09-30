@@ -8,7 +8,7 @@ describe('CurrencyService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      
+
       providers:[
         MessageService,
       ]
@@ -20,5 +20,4 @@ describe('CurrencyService', () => {
     expect(service).toBeTruthy();
   });
 
- 
 });

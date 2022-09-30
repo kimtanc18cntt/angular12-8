@@ -6,10 +6,12 @@
 <ng-template #notLoading>
 <div class="card">
   <p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="name"
-      [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
+      [sortField]="sortField" [sortOrder]="sortOrder" layout="grid"
+     dataKey="id"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [showCurrentPageReport]="true">
       <ng-template pTemplate="header">
           <div class="flex flex-column md:flex-row md:justify-content-between">
-
               <span class="p-input-icon-left mb-2 md:mb-0">
                   <i class="pi pi-search"></i>
                   <input pInputText type="text" placeholder="Search..." [(ngModel)]="searchInput"
@@ -25,7 +27,7 @@
                     <img src={{product.image}} alt="dmgpsd" class="imglist" />
                       <div class="content-list">
                     <div class="product-name"><h1>{{product.name}}</h1></div>
-                      <i class="pi pi-chart-bar product-category-icon"></i>
+                      <i class="pi pi-chart-line product-category-icon"></i>
                         <span [style]="product.price_change_percentage_24h < 0 ? {color: 'red'}: ''" class="product-category">{{product.price_change_percentage_24h}}%</span>
                       <p></p>
                       <span class="product-price">{{product.current_price| currency}}</span>
@@ -33,7 +35,7 @@
                     </div>
                 </div>
                   <div class="product-list-action">
-                      <button pButton pRipple label="Details" icon="pi pi-plus" (click)="gotoDetails(product)"
+                      <button pButton pRipple label="Details" (click)="gotoDetails(product)"
                       class="p-button-success mr-2"></button>
                   </div>
               </div>
@@ -51,14 +53,14 @@
                   <div class="product-grid-item-content">
                     <img [src]="product.image"   class="shadow-4dsdfd">
                       <div class="product-name"><h1>{{product.name}}</h1></div>
-                      <div [style]="product.price_change_percentage_24h < 0 ? {color: 'red'}: ''" class="product-description" >{{product.price_change_percentage_24h}}%</div>
+                      <i class="pi pi-chart-line product-category-icon"></i>
+                      <span [style]="product.price_change_percentage_24h < 0 ? {color: 'red'}: ''" class="product-description" >{{product.price_change_percentage_24h}}%</span>
                       <p-rating [ngModel]="product.current_price" [readonly]="true" [cancel]="false"></p-rating>
                   </div>
                   <div class="product-grid-item-bottom">
                       <span class="product-price">{{product.current_price| currency}}</span>
-                      <button pButton pRipple label="Details" icon="pi pi-plus" (click)="gotoDetails(product)"
+                      <button pButton pRipple label="Details" (click)="gotoDetails(product)"
                                 class="p-button-success mr-2"></button>
-
                   </div>
               </div>
           </div>

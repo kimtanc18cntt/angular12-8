@@ -54,8 +54,8 @@ export class CoinListComponent implements OnInit {
           this.isLoading = true;
           setTimeout(() => {
             console.log(res);
-            this.dataSource = res
-            console.log('ádasdasd'+this.dataSource)
+            this.dataSource=this.Products= this.ProductTemp= res;
+            console.log('data:'+this.dataSource)
             this.isLoading = false;
           }, 3000);
       })
@@ -75,8 +75,8 @@ export class CoinListComponent implements OnInit {
   }
 
   handleSearchChange() {
-    let newUsers = this.dataSource.filter(Products => Products.name?.toLowerCase().includes(this.searchInput.toLowerCase()));
+    let newUsers = this.ProductTemp.filter(products => products.name?.toLowerCase().includes(this.searchInput.toLowerCase()));
     this.dataSource = newUsers;
-    console.log('âsdasdasd'+this.dataSource)
+    console.log('data search:'+this.dataSource)
   }
 }

@@ -45,26 +45,15 @@
       "phone": "0912321132"
     },
     {
-      "id": 18,
-      "username": "Kim TÂN",
-      "city": "Phú Yên",
-      "district": "Thị xã Sông Cầu",
+      "id": 26,
+      "username": "Kim Tân",
+      "city": "Đà Nẵng",
+      "district": "Quận Hải Châu",
       "sex": "Female",
-      "birth": "2022-09-15T06:55:49.826Z",
+      "birth": "2022-09-04T17:00:00.000Z",
       "type": "Individual",
       "email": "lktan@tma.com.vn",
-      "phone": "0915152616"
-    },
-    {
-      "id": 19,
-      "username": "aaaaaaaaaaaaaaaaaaa",
-      "city": "Quảng Nam",
-      "district": "Thành phố Hội An",
-      "sex": "Female",
-      "birth": "2022-09-16T09:39:37.507Z",
-      "type": "Individual",
-      "email": "lktan@tma.com.vn",
-      "phone": "0915152616"
+      "phone": "0919319254"
     }
   ],
   "ima": [

@@ -9,7 +9,7 @@ import { User } from 'src/app/user';
 import { ApiregisterService } from 'src/app/service/apiregister.service';
 import { ConfirmDialog } from 'primeng/confirmdialog';
 
-fdescribe('RegisterComponent', () => {
+describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
   let userService = jasmine.createSpyObj('userService',

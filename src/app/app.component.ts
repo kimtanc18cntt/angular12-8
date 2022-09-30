@@ -8,7 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app3 app is running!';
   userDialog = false;
-  
-  
-  
 }
